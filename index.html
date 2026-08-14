@@ -2,28 +2,22 @@
 <html lang="bn">
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <title>Ishika & Sukalyan — Wedding Invitation</title>
 
-  <!-- Elegant typography -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500&display=swap"
     rel="stylesheet"
   >
 
   <style>
-
     :root {
       --ivory: #fffaf0;
       --maroon: #713b36;
-      --brown: #654b43;
-      --muted: #9a8076;
-      --line: #ddcdbd;
-      --paper-edge: #e9ddcf;
+      --brown: #5e4740;
+      --muted: #91766d;
+      --line: #dccbbb;
     }
 
     * {
@@ -38,36 +32,21 @@
 
     body {
       min-height: 100vh;
-
       display: grid;
       place-items: center;
-
       padding: 18px;
-
       background:
         radial-gradient(
           circle at top,
-          rgba(255,255,255,0.75),
-          transparent 45%
+          rgba(255,255,255,.72),
+          transparent 42%
         ),
         #e9dfd1;
-
-      color: var(--brown);
     }
-
-
-    /* ==========================================
-       PAGE
-       ========================================== */
 
     .page {
       width: min(92vw, 470px);
     }
-
-
-    /* ==========================================
-       CARD / FLIP
-       ========================================== */
 
     .scene {
       width: 100%;
@@ -76,13 +55,7 @@
 
     .card {
       width: 100%;
-
-      /*
-        Your artwork is a 2:3 portrait,
-        so the card keeps the same ratio.
-      */
       aspect-ratio: 2 / 3;
-
       position: relative;
 
       transform-style: preserve-3d;
@@ -102,21 +75,19 @@
       inset: 0;
 
       overflow: hidden;
-
       border-radius: 6px;
 
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
 
       box-shadow:
-        0 24px 55px rgba(72, 48, 34, 0.16),
-        0 3px 10px rgba(72, 48, 34, 0.08);
+        0 22px 55px rgba(72,48,34,.17),
+        0 3px 10px rgba(72,48,34,.08);
     }
 
-
-    /* ==========================================
+    /* =========================
        FRONT
-       ========================================== */
+       ========================= */
 
     .front {
       background: #2fc9d0;
@@ -125,35 +96,24 @@
     .front img {
       width: 100%;
       height: 100%;
-
       display: block;
-
-      /*
-        contain prevents any part of your
-        actual artwork from being cropped.
-      */
       object-fit: contain;
-
       background: #2fc9d0;
     }
 
-
-    /* ==========================================
+    /* =========================
        BACK
-       ========================================== */
+       ========================= */
 
     .back {
       transform: rotateY(180deg);
 
-      background:
-        linear-gradient(
-          rgba(255,250,240,0.98),
-          rgba(255,250,240,0.98)
-        );
+      background: var(--ivory);
+      color: var(--brown);
 
       padding:
-        clamp(28px, 7%, 40px)
-        clamp(22px, 9%, 43px);
+        clamp(26px, 7%, 38px)
+        clamp(22px, 9%, 42px);
 
       text-align: center;
 
@@ -166,21 +126,15 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
     }
 
     .back::-webkit-scrollbar {
       display: none;
     }
 
-
-    /* ==========================================
-       TOP LINE
-       ========================================== */
+    /* =========================
+       BENGALI / ENGLISH TYPOGRAPHY
+       ========================= */
 
     .top-line {
       color: var(--muted);
@@ -190,17 +144,9 @@
         Georgia,
         serif;
 
-      font-size: clamp(12px, 3vw, 14px);
-
+      font-size: clamp(12px, 3.1vw, 15px);
       margin-bottom: 5px;
-
-      letter-spacing: 0.3px;
     }
-
-
-    /* ==========================================
-       MAIN TITLE
-       ========================================== */
 
     .title {
       margin: 0;
@@ -212,56 +158,26 @@
         Georgia,
         serif;
 
-      font-size:
-        clamp(27px, 7vw, 36px);
-
+      font-size: clamp(25px, 7vw, 34px);
       font-weight: 600;
 
-      line-height: 1.3;
+      line-height: 1.25;
     }
-
-
-    /* English title */
-
-    .english-title {
-      font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-      font-size:
-        clamp(32px, 8vw, 44px);
-
-      font-weight: 500;
-
-      letter-spacing: 0.3px;
-    }
-
-
-    /* ==========================================
-       SINGLE HEART ABOVE NAMES
-       ========================================== */
 
     .ornament {
-      color: #a88975;
+      color: #a98b76;
 
       font-family:
         "Playfair Display",
         Georgia,
         serif;
 
-      font-size: 17px;
+      font-size: 16px;
 
-      margin:
-        5px 0 10px;
+      margin: 4px 0 10px;
 
       letter-spacing: 4px;
     }
-
-
-    /* ==========================================
-       NAMES
-       ========================================== */
 
     .names-bn {
       color: var(--maroon);
@@ -271,112 +187,89 @@
         Georgia,
         serif;
 
-      font-size:
-        clamp(26px, 7vw, 37px);
-
+      font-size: clamp(24px, 6.6vw, 34px);
       font-weight: 600;
 
-      line-height: 1.25;
-
-      margin: 0;
+      line-height: 1.2;
     }
 
     .names-en {
       color: var(--maroon);
 
       font-family:
-        "Cormorant Garamond",
+        "DM Serif Display",
         Georgia,
         serif;
 
-      font-size:
-        clamp(36px, 9vw, 50px);
+      font-size: clamp(27px, 7.2vw, 38px);
+      font-weight: 400;
 
-      font-weight: 500;
-
-      line-height: 1;
-
-      letter-spacing: 0.2px;
-
-      margin: 0;
+      line-height: 1.12;
     }
-
-
-    /* ==========================================
-       BODY TEXT
-       ========================================== */
 
     .intro {
       max-width: 350px;
 
-      margin:
-        14px auto 0;
+      margin: 13px auto 0;
 
-      font-size:
-        clamp(12.5px, 3.15vw, 14.5px);
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
 
-      line-height: 1.85;
-
-      font-weight: 400;
+      font-size: clamp(12.5px, 3.2vw, 14.5px);
+      line-height: 1.8;
     }
 
     .closing {
-      max-width: 345px;
+      max-width: 340px;
 
-      margin:
-        9px auto 0;
+      margin: 10px auto 0;
 
-      font-size:
-        clamp(12.5px, 3.1vw, 14px);
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
 
-      line-height: 1.8;
-
-      color: var(--brown);
+      font-size: clamp(12.5px, 3.15vw, 14px);
+      line-height: 1.75;
     }
 
     .highlight {
       display: block;
-
       margin-top: 4px;
 
       color: var(--maroon);
-
       font-weight: 600;
     }
 
-
-    /* ==========================================
+    /* =========================
        DATE / TIME
-       ========================================== */
+       ========================= */
 
     .details {
       width: min(100%, 320px);
 
       margin:
-        17px auto 11px;
+        15px auto 10px;
 
       padding:
-        11px 8px;
+        10px 8px;
 
-      border-top:
-        1px solid var(--line);
-
-      border-bottom:
-        1px solid var(--line);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .date {
       color: var(--maroon);
 
       font-family:
-        "Cormorant Garamond",
+        "DM Serif Display",
         Georgia,
         serif;
 
-      font-size:
-        clamp(17px, 4.2vw, 21px);
-
-      font-weight: 500;
+      font-size: clamp(17px, 4.2vw, 21px);
+      font-weight: 400;
 
       line-height: 1.35;
     }
@@ -389,18 +282,16 @@
         Arial,
         sans-serif;
 
-      font-size:
-        clamp(11px, 2.8vw, 13px);
+      font-size: clamp(11px, 2.8vw, 13px);
 
       margin-top: 3px;
 
-      letter-spacing: 0.3px;
+      letter-spacing: .2px;
     }
 
-
-    /* ==========================================
-       ENGLISH / BENGALI SWITCH
-       ========================================== */
+    /* =========================
+       TRANSLATION
+       ========================= */
 
     .translation {
       display: none;
@@ -419,48 +310,37 @@
 
       align-self: center;
 
-      margin:
-        4px 0 7px;
-
-      padding:
-        2px 0;
+      margin: 5px 0 7px;
+      padding: 2px 0;
 
       border: 0;
-
-      border-bottom:
-        1px solid #a98b76;
+      border-bottom: 1px solid #a98b76;
 
       background: transparent;
 
       color: var(--maroon);
 
-      font-family:
-        "Inter",
+      font:
+        11px/1.5
+        Inter,
         Arial,
         sans-serif;
 
-      font-size: 10.5px;
-
       cursor: pointer;
-
-      letter-spacing: 0.1px;
     }
 
     .translate-button:hover {
-      opacity: 0.65;
+      opacity: .7;
     }
 
-
-    /* ==========================================
-       LOCATION + CALENDAR
-       ========================================== */
+    /* =========================
+       ACTIONS
+       ========================= */
 
     .actions {
       display: flex;
-
       justify-content: center;
       align-items: center;
-
       flex-wrap: wrap;
 
       margin-top: 5px;
@@ -471,20 +351,15 @@
 
       text-decoration: none;
 
-      font-family:
-        "Inter",
+      font:
+        11px/1.5
+        Inter,
         Arial,
         sans-serif;
 
-      font-size: 10.5px;
+      padding: 2px 10px;
 
-      line-height: 1.5;
-
-      padding:
-        2px 10px;
-
-      border-right:
-        1px solid var(--line);
+      border-right: 1px solid var(--line);
     }
 
     .action:last-child {
@@ -492,13 +367,12 @@
     }
 
     .action:hover {
-      opacity: 0.6;
+      opacity: .65;
     }
 
-
-    /* ==========================================
-       FLIP PROMPT
-       ========================================== */
+    /* =========================
+       FLIP HINT
+       ========================= */
 
     .hint {
       text-align: center;
@@ -507,23 +381,18 @@
 
       color: #80685f;
 
-      font-family:
-        "Inter",
+      font:
+        11px/1.5
+        Inter,
         Arial,
         sans-serif;
-
-      font-size: 10.5px;
-
-      letter-spacing: 0.2px;
     }
 
-
-    /* ==========================================
+    /* =========================
        SMALL PHONES
-       ========================================== */
+       ========================= */
 
     @media (max-width: 390px) {
-
       body {
         padding: 10px;
       }
@@ -533,16 +402,13 @@
       }
 
       .back {
-        padding:
-          22px 20px;
-
-        justify-content:
-          flex-start;
+        padding: 22px 20px;
+        justify-content: flex-start;
       }
 
       .intro {
-        margin-top: 10px;
-        line-height: 1.7;
+        margin-top: 9px;
+        line-height: 1.68;
       }
 
       .closing {
@@ -561,25 +427,21 @@
       }
 
       .hint {
-        margin-top: 9px;
+        margin-top: 10px;
       }
     }
 
-
-    /* ==========================================
-       SHORT PHONE SCREENS
-       ========================================== */
+    /* =========================
+       SHORT SCREENS
+       ========================= */
 
     @media (max-height: 700px) {
-
       body {
-        padding:
-          10px 14px;
+        padding: 10px 14px;
       }
 
       .page {
-        width:
-          min(82vw, 380px);
+        width: min(82vw, 380px);
       }
 
       .back {
@@ -614,7 +476,6 @@
         margin-top: 7px;
       }
     }
-
   </style>
 </head>
 
@@ -623,19 +484,13 @@
 
   <main class="page">
 
-    <div
-      class="scene"
-      id="scene"
-    >
+    <div class="scene" id="scene">
 
-      <div
-        class="card"
-        id="card"
-      >
+      <div class="card" id="card">
 
 
         <!-- =========================================
-             FRONT COVER
+             FRONT
              ========================================= -->
 
         <section class="side front">
@@ -656,7 +511,7 @@
 
 
           <!-- ======================================
-               BENGALI VERSION
+               BENGALI
                ====================================== -->
 
           <div
@@ -668,40 +523,30 @@
               ॥ শ্রী গণেশায় নমঃ ॥
             </div>
 
-
             <h1 class="title">
-              আমাদের শুভ বিবাহ
+              শুভ বিবাহ
             </h1>
 
-
-            <!-- ONLY HEART -->
+            <!-- ONLY HEART IN THE BACK -->
             <div class="ornament">
               ── ♡ ──
             </div>
-
 
             <div class="names-bn">
               ঈশিকা ও সুকল্যাণ
             </div>
 
-
             <p class="intro">
-              দুই পরিবারের ভালোবাসা ও আশীর্বাদ সঙ্গে নিয়ে
-              আমরা বিয়ের নতুন পথচলা শুরু করতে চলেছি।
-              এই বিশেষ দিনে আমাদের প্রিয় মানুষদের
-              সঙ্গে নিয়ে আনন্দ করতে চাই।
+              দুই পরিবারের ভালোবাসা ও আশীর্বাদে
+              আমাদের শুভ বিবাহের এই আনন্দের দিনে
+              তোমাদের সঙ্গে নিয়ে উদযাপন করতে চাই।
             </p>
-
 
             <p class="closing">
-              তোমাদের উপস্থিতি আমাদের এই দিনটাকে
-              আরও সুন্দর করে তুলবে।
-
               <span class="highlight">
-                তোমাদের সঙ্গে নিয়েই এই দিনটা পূর্ণ হবে।
+                তোমাদের সবার জন্য অপেক্ষা থাকবে।
               </span>
             </p>
-
 
             <div class="details">
 
@@ -719,7 +564,7 @@
 
 
           <!-- ======================================
-               ENGLISH VERSION
+               ENGLISH
                ====================================== -->
 
           <div
@@ -731,41 +576,30 @@
               With love
             </div>
 
-
-            <h1 class="title english-title">
+            <h1 class="title">
               Our Wedding
             </h1>
 
-
-            <!-- ONLY HEART -->
+            <!-- ONLY HEART IN THE BACK -->
             <div class="ornament">
               ── ♡ ──
             </div>
-
 
             <div class="names-en">
               Ishika & Sukalyan
             </div>
 
-
             <p class="intro">
               With the love and blessings of our families,
-              we're getting married!
-
-              We'd love to celebrate this special day
-              with the people who make our lives brighter.
+              we'd love to celebrate our wedding
+              with all our favourite people.
             </p>
 
-
             <p class="closing">
-              Your presence will make our wedding
-              even more special.
-
               <span class="highlight">
                 We'd love to have you there.
               </span>
             </p>
-
 
             <div class="details">
 
@@ -812,7 +646,6 @@
               📍 View location
             </a>
 
-
             <a
               class="action"
               href="#"
@@ -834,10 +667,6 @@
     </div>
 
 
-    <!-- ==========================================
-         ENGLISH FLIP PROMPT
-         ========================================== -->
-
     <div
       class="hint"
       id="hint"
@@ -849,7 +678,6 @@
 
 
   <script>
-
 
     /* ============================================
        CARD FLIP
@@ -893,35 +721,22 @@
 
       event.stopPropagation();
 
-
       const bengali =
-        document.getElementById(
-          "bengaliVersion"
-        );
-
+        document.getElementById("bengaliVersion");
 
       const english =
-        document.getElementById(
-          "englishVersion"
-        );
-
+        document.getElementById("englishVersion");
 
       const button =
-        document.getElementById(
-          "translateButton"
-        );
-
+        document.getElementById("translateButton");
 
       const isEnglish =
-        english.classList.contains(
-          "show"
-        );
+        english.classList.contains("show");
 
 
       if (isEnglish) {
 
         english.classList.remove("show");
-
         bengali.classList.remove("hide");
 
         button.textContent =
@@ -930,7 +745,6 @@
       } else {
 
         bengali.classList.add("hide");
-
         english.classList.add("show");
 
         button.textContent =
@@ -952,16 +766,13 @@
           "Ishika & Sukalyan — Wedding"
         );
 
-
       const dates =
         "20261125T170000/20261125T200000";
-
 
       const location =
         encodeURIComponent(
           "Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089"
         );
-
 
       const calendarURL =
         "https://calendar.google.com/calendar/render" +
@@ -969,7 +780,6 @@
         "&text=" + title +
         "&dates=" + dates +
         "&location=" + location;
-
 
       window.open(
         calendarURL,
