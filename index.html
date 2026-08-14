@@ -7,128 +7,232 @@
   <title>Ishika & Sukalyan — Wedding Invitation</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+    :root {
+      --ivory: #fffaf0;
+      --paper: #f4ecdf;
+      --maroon: #713b36;
+      --brown: #5e4740;
+      --muted: #90766e;
+      --line: #d9c8b7;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
+      min-height: 100%;
+    }
+
+    body {
       min-height: 100vh;
       display: grid;
       place-items: center;
-      background: #eee6d8;
-      font-family: Georgia, "Noto Serif Bengali", serif;
+      padding: 20px;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,.7), transparent 40%),
+        #e9dfd1;
+      font-family: "Noto Serif Bengali", Georgia, serif;
     }
 
-    .wrap {
-      width: min(88vw, 420px);
-      perspective: 1400px;
+    .page {
+      width: min(92vw, 470px);
+    }
+
+    /* ==================================================
+       CARD
+       Your artwork is 2:3, so the card uses the same ratio.
+       This prevents the bottom of your cover from being cut.
+       ================================================== */
+
+    .scene {
+      width: 100%;
+      perspective: 1600px;
     }
 
     .card {
       width: 100%;
-      aspect-ratio: 3 / 4.2;
+      aspect-ratio: 2 / 3;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 1s cubic-bezier(.2,.75,.25,1);
+      transition: transform 1s cubic-bezier(.2,.72,.22,1);
       cursor: pointer;
     }
 
-    .wrap.open .card {
+    .scene.open .card {
       transform: rotateY(180deg);
     }
 
     .side {
       position: absolute;
       inset: 0;
-      border-radius: 8px;
+
+      border-radius: 6px;
       overflow: hidden;
 
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
 
-      box-shadow: 0 18px 45px rgba(0,0,0,.13);
+      box-shadow:
+        0 22px 55px rgba(72, 48, 34, .18),
+        0 3px 10px rgba(72, 48, 34, .08);
     }
 
-
-    /* =========================
-       FRONT COVER
-       ========================= */
+    /* ==================================================
+       FRONT
+       ================================================== */
 
     .front {
-      background: #6db4c1;
+      background: #2fc9d0;
     }
 
     .front img {
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;
+
+      /* IMPORTANT:
+         contain instead of cover = no cropping */
+      object-fit: contain;
+      background: #2fc9d0;
     }
 
-
-    /* =========================
+    /* ==================================================
        BACK
-       ========================= */
+       ================================================== */
 
     .back {
       transform: rotateY(180deg);
 
-      background: #fffaf0;
-      color: #542f2c;
+      background:
+        linear-gradient(rgba(255,250,240,.97), rgba(255,250,240,.97)),
+        var(--ivory);
+
+      color: var(--brown);
 
       padding: 8% 9%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       text-align: center;
 
       overflow-y: auto;
     }
 
-    .back h1 {
-      margin: 2px 0 2px;
-      font-size: 25px;
+    .top-mantra {
+      color: var(--muted);
+      font-size: 15px;
+      letter-spacing: .3px;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      margin: 0;
+
+      color: var(--maroon);
+
+      font-family: "Noto Serif Bengali", Georgia, serif;
+      font-size: clamp(26px, 7vw, 34px);
       font-weight: 600;
+
+      letter-spacing: .2px;
     }
 
-    .back h2 {
-      margin: 0 0 12px;
-      font-size: 24px;
+    .ornament {
+      color: #a98b76;
+      font-size: 17px;
+
+      margin: 5px 0 12px;
+
+      letter-spacing: 5px;
+    }
+
+    /* Names intentionally use a DIFFERENT style
+       from the English title/front. */
+
+    .names {
+      color: var(--maroon);
+
+      font-family: "DM Serif Display", Georgia, serif;
+
+      font-size: clamp(28px, 7.2vw, 38px);
+      line-height: 1.08;
+
+      margin: 0;
+    }
+
+    .names-bn {
+      font-family: "Noto Serif Bengali", Georgia, serif;
       font-weight: 600;
+      font-size: clamp(25px, 6.8vw, 34px);
     }
 
-    .back p {
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 7px 0;
-    }
+    .ampersand {
+      color: #a98772;
+      font-family: "Playfair Display", Georgia, serif;
 
-    .orn {
-      font-size: 19px;
-      margin: 2px 0 7px;
-    }
+      font-style: italic;
+      font-size: 21px;
 
-
-    /* =========================
-       EVENT DETAILS
-       ========================= */
-
-    .details {
-      border-top: 1px solid #cbb9a5;
-      border-bottom: 1px solid #cbb9a5;
-
-      padding: 11px 5px;
-
-      margin: 15px 0 12px;
-    }
-
-    .details p {
       margin: 3px 0;
     }
 
+    .intro {
+      max-width: 34em;
+      margin: 12px auto 0;
 
-    /* =========================
+      font-size: clamp(13px, 3.3vw, 15px);
+      line-height: 1.85;
+    }
+
+    .details {
+      margin: 18px auto 12px;
+
+      padding: 12px 14px;
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
+      max-width: 330px;
+    }
+
+    .details .date {
+      color: var(--maroon);
+
+      font-size: 16px;
+      font-weight: 600;
+
+      margin-bottom: 4px;
+    }
+
+    .details .time {
+      color: var(--brown);
+      font-size: 14px;
+    }
+
+    .closing {
+      margin-top: 3px;
+
+      color: var(--brown);
+
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .highlight {
+      color: var(--maroon);
+      font-weight: 600;
+    }
+
+    /* ==================================================
        TRANSLATION
-       ========================= */
+       ================================================== */
 
     .translation {
       display: none;
@@ -143,77 +247,98 @@
     }
 
     .translate-button {
+      appearance: none;
+
       display: inline-block;
 
-      margin: 5px 0 10px;
+      margin: 8px auto 5px;
+      padding: 0;
 
-      padding: 7px 14px;
-
-      border: 1px solid #8c625b;
-      border-radius: 20px;
+      border: 0;
+      border-bottom: 1px solid #a98b76;
 
       background: transparent;
 
-      color: #6f3c37;
+      color: var(--maroon);
 
-      font: 12px Arial, sans-serif;
+      font: 12px Inter, Arial, sans-serif;
+
+      line-height: 1.6;
 
       cursor: pointer;
     }
 
+    .translate-button:hover {
+      opacity: .72;
+    }
 
-    /* =========================
-       ACTION BUTTONS
-       ========================= */
+    /* ==================================================
+       ACTION LINKS
+       Light and discreet instead of bulky pills.
+       ================================================== */
 
-    .buttons {
+    .actions {
       display: flex;
-      gap: 7px;
 
       justify-content: center;
       align-items: center;
 
       flex-wrap: wrap;
 
-      margin-top: 14px;
+      gap: 0;
+
+      margin-top: 11px;
     }
 
-    .button {
-      display: inline-block;
-
-      background: #6f3c37;
-      color: #fffaf0;
+    .action {
+      color: var(--maroon);
 
       text-decoration: none;
 
-      padding: 9px 12px;
+      font: 11px Inter, Arial, sans-serif;
 
-      border-radius: 22px;
+      padding: 2px 8px;
 
-      font: 12px Arial, sans-serif;
-
-      transition: transform .15s ease,
-                  opacity .15s ease;
+      border-right: 1px solid var(--line);
     }
 
-    .button:active {
-      transform: scale(.96);
-      opacity: .85;
+    .action:last-child {
+      border-right: 0;
     }
 
+    .action:hover {
+      opacity: .7;
+    }
 
-    /* =========================
+    /* ==================================================
        FLIP HINT
-       ========================= */
+       ================================================== */
 
     .hint {
       text-align: center;
 
-      color: #6f5148;
+      margin-top: 16px;
 
-      font: 14px Arial, sans-serif;
+      color: #80685f;
 
-      margin-top: 18px;
+      font: 12px Inter, Arial, sans-serif;
+
+      letter-spacing: .2px;
+    }
+
+    /* ==================================================
+       SMALL SCREENS
+       ================================================== */
+
+    @media (max-height: 700px) {
+      .page {
+        width: min(76vw, 390px);
+      }
+
+      .back {
+        padding-top: 6%;
+        padding-bottom: 6%;
+      }
     }
   </style>
 </head>
@@ -221,349 +346,318 @@
 
 <body>
 
-<div>
+  <main class="page">
 
-  <div class="wrap" id="cardWrap">
+    <div class="scene" id="scene">
 
-    <div class="card" id="card">
-
-
-      <!-- =====================================
-           FRONT
-           ===================================== -->
-
-      <section class="side front">
-
-        <img
-          src="front.png"
-          alt="Ishika and Sukalyan wedding invitation"
-        >
-
-      </section>
+      <div class="card" id="card">
 
 
-      <!-- =====================================
-           BACK
-           ===================================== -->
+        <!-- =================================================
+             FRONT
+             ================================================= -->
 
-      <section class="side back">
+        <section class="side front">
 
+          <!-- IMPORTANT:
+               Keep front.png if that is the file that works
+               in your GitHub repository. -->
 
-        <!-- ===============================
-             BENGALI VERSION
-             =============================== -->
-
-        <div class="bengali" id="bengaliVersion">
-
-          <div class="orn">
-            ♡
-          </div>
-
-          <h2>
-            শুভ বিবাহ
-          </h2>
-
-          <h1>
-            ঈশিকা ও সুকল্যাণ
-          </h1>
-
-
-          <p>
-            দুই পরিবারের ভালোবাসা ও আশীর্বাদ সঙ্গে নিয়ে
-            আমরা শুরু করতে চলেছি আমাদের নতুন পথচলা।
-          </p>
-
-
-          <p>
-            এই বিশেষ দিনে আমাদের প্রিয় মানুষদের
-            সঙ্গে নিয়ে একটু আনন্দ করতে চাই।
-            তোমাদের উপস্থিতি এই দিনটাকে আরও সুন্দর করে তুলবে। ♡
-          </p>
-
-
-          <div class="details">
-
-            <p>
-              <strong>
-                ২৫শে নভেম্বর, ২০২৬ | বুধবার
-              </strong>
-            </p>
-
-            <p>
-              <strong>
-                বিকেল ৫টা
-              </strong>
-            </p>
-
-          </div>
-
-
-          <p>
-            তোমাদের আসা কিন্তু চাই-ই চাই! ♡
-          </p>
-
-        </div>
-
-
-        <!-- ===============================
-             ENGLISH VERSION
-             =============================== -->
-
-        <div
-          class="translation"
-          id="englishVersion"
-        >
-
-          <div class="orn">
-            ♡
-          </div>
-
-          <h2>
-            A New Chapter Begins
-          </h2>
-
-          <h1>
-            Ishika & Sukalyan
-          </h1>
-
-
-          <p>
-            With the love and blessings of our families,
-            we're beginning a new chapter together.
-          </p>
-
-
-          <p>
-            We'd love to celebrate this special day
-            with the people who make our lives
-            a little brighter.
-            Your presence would make our day
-            even more special. ♡
-          </p>
-
-
-          <div class="details">
-
-            <p>
-              <strong>
-                25 November 2026 | Wednesday
-              </strong>
-            </p>
-
-            <p>
-              <strong>
-                5:00 PM
-              </strong>
-            </p>
-
-          </div>
-
-
-          <p>
-            We really hope you'll be there! ♡
-          </p>
-
-        </div>
-
-
-        <!-- ===============================
-             TRANSLATION BUTTON
-             =============================== -->
-
-        <button
-          class="translate-button"
-          id="translateButton"
-          onclick="toggleTranslation(event)"
-        >
-          🌐 English Translation
-        </button>
-
-
-        <!-- ===============================
-             ACTION BUTTONS
-             =============================== -->
-
-        <div class="buttons">
-
-
-          <!-- CONTACT -->
-
-          <a
-            class="button"
-            href="tel:+919836543712"
-            onclick="event.stopPropagation()"
+          <img
+            src="./front.png"
+            alt="Ishika and Sukalyan wedding invitation"
           >
-            📞 Contact
-          </a>
+
+        </section>
 
 
-          <!-- LOCATION -->
+        <!-- =================================================
+             BACK
+             ================================================= -->
 
-          <a
-            class="button"
-            href="https://www.google.com/maps/search/?api=1&query=Kalindi+Plot+Owners+Association%2C+81%2F1+Kalindi+Housing+Estate%2C+Kolkata+700089"
-            target="_blank"
-            rel="noopener"
-            onclick="event.stopPropagation()"
+        <section class="side back">
+
+
+          <!-- ============================
+               BENGALI
+               ============================ -->
+
+          <div class="bengali" id="bengaliVersion">
+
+            <div class="top-mantra">
+              ॥ শ্রী গণেশায় নমঃ ॥
+            </div>
+
+            <h2 class="title">
+              শুভ বিবাহ
+            </h2>
+
+            <div class="ornament">
+              ── ♡ ──
+            </div>
+
+            <div class="names names-bn">
+              ঈশিকা ও সুকল্যাণ
+            </div>
+
+            <p class="intro">
+              দুই পরিবারের ভালোবাসা ও আশীর্বাদ সঙ্গে নিয়ে
+              আমরা শুরু করতে চলেছি আমাদের নতুন পথচলা।
+              এই বিশেষ দিনে আমাদের প্রিয় মানুষদের
+              সঙ্গে নিয়ে একটু আনন্দ করতে চাই।
+            </p>
+
+            <p class="closing">
+              তোমাদের উপস্থিতি এই দিনটাকে আরও সুন্দর করে তুলবে।
+              <span class="highlight">তোমাদের আসা কিন্তু চাই-ই চাই! ♡</span>
+            </p>
+
+            <div class="details">
+
+              <div class="date">
+                ২৫শে নভেম্বর, ২০২৬
+              </div>
+
+              <div class="time">
+                বুধবার · বিকেল ৫টা
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ============================
+               ENGLISH
+               ============================ -->
+
+          <div
+            class="translation"
+            id="englishVersion"
           >
-            📍 View Location
-          </a>
+
+            <div class="top-mantra">
+              With love ♡
+            </div>
+
+            <h2 class="title">
+              A New Chapter Begins
+            </h2>
+
+            <div class="ornament">
+              ── ♡ ──
+            </div>
+
+            <div class="names">
+              Ishika & Sukalyan
+            </div>
+
+            <p class="intro">
+              With the love and blessings of our families,
+              we're beginning a new chapter together.
+              We'd love to celebrate this special day
+              with the people who make our lives
+              a little brighter.
+            </p>
+
+            <p class="closing">
+              Your presence will make our day even more special.
+              <span class="highlight">We really hope you'll be there! ♡</span>
+            </p>
+
+            <div class="details">
+
+              <div class="date">
+                25 November, 2026
+              </div>
+
+              <div class="time">
+                Wednesday · 5:00 PM
+              </div>
+
+            </div>
+
+          </div>
 
 
-          <!-- CALENDAR -->
+          <!-- ============================
+               TRANSLATION TOGGLE
+               ============================ -->
 
-          <a
-            class="button"
-            href="#"
-            onclick="event.stopPropagation(); addToCalendar(); return false;"
+          <button
+            type="button"
+            class="translate-button"
+            id="translateButton"
+            onclick="toggleTranslation(event)"
           >
-            📅 Add to Calendar
-          </a>
-
-        </div>
+            English translation
+          </button>
 
 
-      </section>
+          <!-- ============================
+               ACTIONS
+               ============================ -->
+
+          <div class="actions">
+
+            <a
+              class="action"
+              href="tel:+919836543712"
+              onclick="event.stopPropagation()"
+            >
+              Contact
+            </a>
+
+            <a
+              class="action"
+              href="https://www.google.com/maps/search/?api=1&query=Kalindi+Plot+Owners+Association%2C+81%2F1+Kalindi+Housing+Estate%2C+Kolkata+700089"
+              target="_blank"
+              rel="noopener"
+              onclick="event.stopPropagation()"
+            >
+              Location
+            </a>
+
+            <a
+              class="action"
+              href="#"
+              onclick="event.stopPropagation(); addToCalendar(); return false;"
+            >
+              Add to calendar
+            </a>
+
+          </div>
+
+
+        </section>
+
+      </div>
 
     </div>
 
-  </div>
+
+    <div
+      class="hint"
+      id="hint"
+    >
+      আমন্ত্রণটি খুলতে স্পর্শ করুন ♡
+    </div>
+
+  </main>
 
 
-  <!-- FLIP INSTRUCTION -->
+  <script>
 
-  <div
-    class="hint"
-    id="hint"
-  >
-    আমন্ত্রণটি খুলতে স্পর্শ করুন ♡
-  </div>
+    /* =====================================================
+       CARD FLIP
+       ===================================================== */
 
-</div>
+    const scene =
+      document.getElementById("scene");
 
+    const card =
+      document.getElementById("card");
 
-<script>
-
-  /* ==========================================
-     CARD FLIP
-     ========================================== */
-
-  const cardWrap =
-    document.getElementById("cardWrap");
-
-  const card =
-    document.getElementById("card");
-
-  const hint =
-    document.getElementById("hint");
+    const hint =
+      document.getElementById("hint");
 
 
-  card.addEventListener("click", function () {
+    card.addEventListener("click", () => {
 
-    cardWrap.classList.toggle("open");
+      scene.classList.toggle("open");
 
+      if (scene.classList.contains("open")) {
 
-    if (cardWrap.classList.contains("open")) {
+        hint.textContent =
+          "বন্ধ করতে আবার স্পর্শ করুন ♡";
 
-      hint.textContent =
-        "বন্ধ করতে আবার স্পর্শ করুন ♡";
+      } else {
 
-    } else {
+        hint.textContent =
+          "আমন্ত্রণটি খুলতে স্পর্শ করুন ♡";
 
-      hint.textContent =
-        "আমন্ত্রণটি খুলতে স্পর্শ করুন ♡";
+      }
 
-    }
-
-  });
-
+    });
 
 
-  /* ==========================================
-     ENGLISH TRANSLATION
-     ========================================== */
+    /* =====================================================
+       TRANSLATION
+       ===================================================== */
 
-  function toggleTranslation(event) {
+    function toggleTranslation(event) {
 
-    event.stopPropagation();
+      event.stopPropagation();
 
+      const bengali =
+        document.getElementById("bengaliVersion");
 
-    const bengali =
-      document.getElementById("bengaliVersion");
+      const english =
+        document.getElementById("englishVersion");
 
-    const english =
-      document.getElementById("englishVersion");
-
-    const button =
-      document.getElementById("translateButton");
-
-
-    const showingEnglish =
-      english.classList.contains("show");
+      const button =
+        document.getElementById("translateButton");
 
 
-    if (showingEnglish) {
+      const isEnglish =
+        english.classList.contains("show");
 
-      english.classList.remove("show");
 
-      bengali.classList.remove("hide");
+      if (isEnglish) {
 
-      button.textContent =
-        "🌐 English Translation";
+        english.classList.remove("show");
+        bengali.classList.remove("hide");
 
-    } else {
+        button.textContent =
+          "English translation";
 
-      bengali.classList.add("hide");
+      } else {
 
-      english.classList.add("show");
+        bengali.classList.add("hide");
+        english.classList.add("show");
 
-      button.textContent =
-        "🌐 বাংলা দেখুন";
+        button.textContent =
+          "বাংলায় দেখুন";
+
+      }
 
     }
 
-  }
 
+    /* =====================================================
+       GOOGLE CALENDAR
+       ===================================================== */
 
+    function addToCalendar() {
 
-  /* ==========================================
-     GOOGLE CALENDAR
-     ========================================== */
+      const title =
+        encodeURIComponent(
+          "Ishika & Sukalyan — Wedding"
+        );
 
-  function addToCalendar() {
+      const dates =
+        "20261125T170000/20261125T200000";
 
-    const title =
-      encodeURIComponent(
-        "Ishika & Sukalyan — Wedding"
+      const location =
+        encodeURIComponent(
+          "Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089"
+        );
+
+      const calendarURL =
+        "https://calendar.google.com/calendar/render" +
+        "?action=TEMPLATE" +
+        "&text=" + title +
+        "&dates=" + dates +
+        "&location=" + location;
+
+      window.open(
+        calendarURL,
+        "_blank"
       );
 
+    }
 
-    const dates =
-      "20261125T170000/20261125T200000";
-
-
-    const location =
-      encodeURIComponent(
-        "Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089"
-      );
-
-
-    const calendarURL =
-      "https://calendar.google.com/calendar/render" +
-      "?action=TEMPLATE" +
-      "&text=" + title +
-      "&dates=" + dates +
-      "&location=" + location;
-
-
-    window.open(
-      calendarURL,
-      "_blank"
-    );
-
-  }
-
-</script>
+  </script>
 
 </body>
 </html>
