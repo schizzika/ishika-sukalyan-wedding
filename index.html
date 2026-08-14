@@ -32,6 +32,7 @@
       display: grid;
       place-items: center;
       padding: 18px;
+
       background:
         radial-gradient(
           circle at top,
@@ -39,6 +40,7 @@
           transparent 42%
         ),
         #e9dfd1;
+
       font-family: "Noto Serif Bengali", Georgia, serif;
     }
 
@@ -54,9 +56,14 @@
     .card {
       width: 100%;
       aspect-ratio: 2 / 3;
+
       position: relative;
+
       transform-style: preserve-3d;
-      transition: transform 1s cubic-bezier(.2,.72,.22,1);
+
+      transition:
+        transform 1s cubic-bezier(.2,.72,.22,1);
+
       cursor: pointer;
     }
 
@@ -67,16 +74,21 @@
     .side {
       position: absolute;
       inset: 0;
+
       border-radius: 6px;
       overflow: hidden;
+
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
+
       box-shadow:
         0 22px 55px rgba(72,48,34,.17),
         0 3px 10px rgba(72,48,34,.08);
     }
 
-    /* FRONT */
+    /* =========================
+       FRONT
+       ========================= */
 
     .front {
       background: #2fc9d0;
@@ -90,18 +102,28 @@
       background: #2fc9d0;
     }
 
-    /* BACK */
+    /* =========================
+       BACK
+       ========================= */
 
     .back {
       transform: rotateY(180deg);
+
       background: var(--ivory);
       color: var(--brown);
-      padding: clamp(26px, 7%, 38px) clamp(22px, 9%, 42px);
+
+      padding:
+        clamp(26px, 7%, 38px)
+        clamp(22px, 9%, 42px);
+
       text-align: center;
+
       overflow-y: auto;
       overflow-x: hidden;
+
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -119,48 +141,85 @@
 
     .title {
       margin: 0;
+
       color: var(--maroon);
-      font-family: "Noto Serif Bengali", Georgia, serif;
+
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
+
       font-size: clamp(25px, 7vw, 34px);
+
       font-weight: 600;
+
       line-height: 1.25;
     }
 
     .ornament {
       color: #a98b76;
-      font-family: "Playfair Display", Georgia, serif;
+
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
       font-size: 16px;
+
       margin: 4px 0 10px;
+
       letter-spacing: 4px;
     }
 
     .names-bn {
       color: var(--maroon);
-      font-family: "Noto Serif Bengali", Georgia, serif;
+
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
+
       font-weight: 600;
+
       font-size: clamp(24px, 6.6vw, 34px);
+
       line-height: 1.2;
     }
 
     .names-en {
       color: var(--maroon);
-      font-family: "DM Serif Display", Georgia, serif;
+
+      font-family:
+        "DM Serif Display",
+        Georgia,
+        serif;
+
       font-size: clamp(27px, 7.2vw, 38px);
+
       line-height: 1.12;
     }
 
     .intro {
       max-width: 350px;
-      margin: 12px auto 0;
+
+      margin:
+        12px auto 0;
+
       font-size: clamp(12.5px, 3.2vw, 14.5px);
+
       line-height: 1.8;
     }
 
     .closing {
       max-width: 340px;
-      margin: 9px auto 0;
+
+      margin:
+        9px auto 0;
+
       font-size: clamp(12.5px, 3.15vw, 14px);
+
       line-height: 1.75;
+
       color: var(--brown);
     }
 
@@ -169,30 +228,47 @@
       font-weight: 600;
     }
 
-    /* DATE / TIME */
+    /* =========================
+       DATE / TIME
+       ========================= */
 
     .details {
       width: min(100%, 320px);
-      margin: 15px auto 10px;
-      padding: 10px 8px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+
+      margin:
+        15px auto 10px;
+
+      padding:
+        10px 8px;
+
+      border-top:
+        1px solid var(--line);
+
+      border-bottom:
+        1px solid var(--line);
     }
 
     .date {
       color: var(--maroon);
+
       font-size: clamp(14px, 3.5vw, 16px);
+
       font-weight: 600;
+
       line-height: 1.5;
     }
 
     .time {
       color: var(--brown);
+
       font-size: clamp(12px, 3vw, 14px);
+
       margin-top: 2px;
     }
 
-    /* TRANSLATION */
+    /* =========================
+       TRANSLATION
+       ========================= */
 
     .translation {
       display: none;
@@ -208,14 +284,30 @@
 
     .translate-button {
       appearance: none;
+
       align-self: center;
-      margin: 5px 0 7px;
-      padding: 2px 0;
+
+      margin:
+        5px 0 7px;
+
+      padding:
+        2px 0;
+
       border: 0;
-      border-bottom: 1px solid #a98b76;
+
+      border-bottom:
+        1px solid #a98b76;
+
       background: transparent;
+
       color: var(--maroon);
-      font: 11px/1.5 Inter, Arial, sans-serif;
+
+      font:
+        11px/1.5
+        Inter,
+        Arial,
+        sans-serif;
+
       cursor: pointer;
     }
 
@@ -223,22 +315,37 @@
       opacity: .7;
     }
 
-    /* LOCATION + CALENDAR */
+    /* =========================
+       LOCATION + CALENDAR
+       ========================= */
 
     .actions {
       display: flex;
+
       justify-content: center;
       align-items: center;
+
       flex-wrap: wrap;
+
       margin-top: 6px;
     }
 
     .action {
       color: var(--maroon);
+
       text-decoration: none;
-      font: 11px/1.5 Inter, Arial, sans-serif;
-      padding: 2px 10px;
-      border-right: 1px solid var(--line);
+
+      font:
+        11px/1.5
+        Inter,
+        Arial,
+        sans-serif;
+
+      padding:
+        2px 10px;
+
+      border-right:
+        1px solid var(--line);
     }
 
     .action:last-child {
@@ -249,16 +356,30 @@
       opacity: .65;
     }
 
+    /* =========================
+       FLIP HINT
+       ========================= */
+
     .hint {
       text-align: center;
+
       margin-top: 14px;
+
       color: #80685f;
-      font: 11px/1.5 Inter, Arial, sans-serif;
+
+      font:
+        11px/1.5
+        Inter,
+        Arial,
+        sans-serif;
     }
 
-    /* SMALL PHONES */
+    /* =========================
+       SMALL PHONES
+       ========================= */
 
     @media (max-width: 390px) {
+
       body {
         padding: 10px;
       }
@@ -268,8 +389,11 @@
       }
 
       .back {
-        padding: 22px 20px;
-        justify-content: flex-start;
+        padding:
+          22px 20px;
+
+        justify-content:
+          flex-start;
       }
 
       .intro {
@@ -297,11 +421,15 @@
       }
     }
 
-    /* VERY SHORT SCREENS */
+    /* =========================
+       VERY SHORT SCREENS
+       ========================= */
 
     @media (max-height: 700px) {
+
       body {
-        padding: 10px 14px;
+        padding:
+          10px 14px;
       }
 
       .page {
@@ -309,8 +437,11 @@
       }
 
       .back {
-        padding: 18px;
-        justify-content: flex-start;
+        padding:
+          18px;
+
+        justify-content:
+          flex-start;
       }
 
       .intro {
@@ -343,43 +474,70 @@
   </style>
 </head>
 
+
 <body>
 
   <main class="page">
 
-    <div class="scene" id="scene">
+    <div
+      class="scene"
+      id="scene"
+    >
 
-      <div class="card" id="card">
+      <div
+        class="card"
+        id="card"
+      >
 
-        <!-- FRONT -->
+        <!-- ================================
+             FRONT COVER
+             ================================ -->
+
         <section class="side front">
+
           <img
             src="./front.png"
             alt="Ishika and Sukalyan wedding invitation cover"
           >
+
         </section>
 
-        <!-- BACK -->
+
+        <!-- ================================
+             BACK
+             ================================ -->
+
         <section class="side back">
 
-          <!-- BENGALI -->
-          <div class="bengali" id="bengaliVersion">
+
+          <!-- ==============================
+               BENGALI VERSION
+               ============================== -->
+
+          <div
+            class="bengali"
+            id="bengaliVersion"
+          >
 
             <div class="top-line">
               ॥ শ্রী গণেশায় নমঃ ॥
             </div>
 
+
             <h1 class="title">
               শুভ বিবাহ
             </h1>
+
 
             <div class="ornament">
               ── ♡ ──
             </div>
 
+
             <div class="names-bn">
               ঈশিকা ও সুকল্যাণ
             </div>
+
 
             <p class="intro">
               দুই পরিবারের ভালোবাসা ও আশীর্বাদ সঙ্গে নিয়ে
@@ -388,14 +546,17 @@
               সঙ্গে নিয়ে একটু আনন্দ করতে চাই।
             </p>
 
+
             <p class="closing">
               তোমাদের উপস্থিতি এই দিনটাকে আরও সুন্দর করে তুলবে।
               <span class="highlight">
-                তোমাদের আসা কিন্তু চাই-ই চাই! ♡
+                তোমাদের সঙ্গে নিয়েই এই দিনটা আরও সুন্দর হবে। ♡
               </span>
             </p>
 
+
             <div class="details">
+
               <div class="date">
                 ২৫শে নভেম্বর, ২০২৬
               </div>
@@ -403,11 +564,16 @@
               <div class="time">
                 বুধবার · বিকেল ৫টা
               </div>
+
             </div>
 
           </div>
 
-          <!-- ENGLISH -->
+
+          <!-- ==============================
+               ENGLISH VERSION
+               ============================== -->
+
           <div
             class="translation"
             id="englishVersion"
@@ -417,17 +583,21 @@
               With love ♡
             </div>
 
+
             <h1 class="title">
               A New Chapter Begins
             </h1>
+
 
             <div class="ornament">
               ── ♡ ──
             </div>
 
+
             <div class="names-en">
               Ishika & Sukalyan
             </div>
+
 
             <p class="intro">
               With the love and blessings of our families,
@@ -437,14 +607,17 @@
               a little brighter.
             </p>
 
+
             <p class="closing">
               Your presence will make our day even more special.
               <span class="highlight">
-                We really hope you'll be there! ♡
+                Having you there will make the day complete. ♡
               </span>
             </p>
 
+
             <div class="details">
+
               <div class="date">
                 25 November, 2026
               </div>
@@ -452,11 +625,16 @@
               <div class="time">
                 Wednesday · 5:00 PM
               </div>
+
             </div>
 
           </div>
 
-          <!-- TRANSLATION -->
+
+          <!-- ==============================
+               TRANSLATION
+               ============================== -->
+
           <button
             type="button"
             class="translate-button"
@@ -466,7 +644,11 @@
             English translation
           </button>
 
-          <!-- ACTIONS -->
+
+          <!-- ==============================
+               ACTIONS
+               ============================== -->
+
           <div class="actions">
 
             <a
@@ -478,6 +660,7 @@
             >
               📍 View location
             </a>
+
 
             <a
               class="action"
@@ -495,15 +678,26 @@
 
     </div>
 
-    <div class="hint" id="hint">
-      আমন্ত্রণটি খুলতে স্পর্শ করুন ♡
+
+    <!-- ==============================
+         ENGLISH FLIP PROMPT
+         ============================== -->
+
+    <div
+      class="hint"
+      id="hint"
+    >
+      Tap to open ♡
     </div>
 
   </main>
 
+
   <script>
 
-    /* CARD FLIP */
+    /* ================================
+       CARD FLIP
+       ================================ */
 
     const scene =
       document.getElementById("scene");
@@ -514,60 +708,96 @@
     const hint =
       document.getElementById("hint");
 
+
     card.addEventListener("click", () => {
 
       scene.classList.toggle("open");
 
-      if (scene.classList.contains("open")) {
+
+      if (
+        scene.classList.contains("open")
+      ) {
+
         hint.textContent =
-          "বন্ধ করতে আবার স্পর্শ করুন ♡";
+          "Tap to close ♡";
+
       } else {
+
         hint.textContent =
-          "আমন্ত্রণটি খুলতে স্পর্শ করুন ♡";
+          "Tap to open ♡";
+
       }
 
     });
 
 
-    /* ENGLISH / BENGALI TOGGLE */
+    /* ================================
+       TRANSLATION TOGGLE
+       ================================ */
 
     function toggleTranslation(event) {
 
       event.stopPropagation();
 
+
       const bengali =
-        document.getElementById("bengaliVersion");
+        document.getElementById(
+          "bengaliVersion"
+        );
+
 
       const english =
-        document.getElementById("englishVersion");
+        document.getElementById(
+          "englishVersion"
+        );
+
 
       const button =
-        document.getElementById("translateButton");
+        document.getElementById(
+          "translateButton"
+        );
+
 
       const isEnglish =
-        english.classList.contains("show");
+        english.classList.contains(
+          "show"
+        );
+
 
       if (isEnglish) {
 
-        english.classList.remove("show");
-        bengali.classList.remove("hide");
+        english.classList.remove(
+          "show"
+        );
+
+        bengali.classList.remove(
+          "hide"
+        );
 
         button.textContent =
           "English translation";
 
       } else {
 
-        bengali.classList.add("hide");
-        english.classList.add("show");
+        bengali.classList.add(
+          "hide"
+        );
+
+        english.classList.add(
+          "show"
+        );
 
         button.textContent =
           "বাংলায় দেখুন";
 
       }
+
     }
 
 
-    /* GOOGLE CALENDAR */
+    /* ================================
+       GOOGLE CALENDAR
+       ================================ */
 
     function addToCalendar() {
 
@@ -576,13 +806,16 @@
           "Ishika & Sukalyan — Wedding"
         );
 
+
       const dates =
         "20261125T170000/20261125T200000";
+
 
       const location =
         encodeURIComponent(
           "Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089"
         );
+
 
       const calendarURL =
         "https://calendar.google.com/calendar/render" +
@@ -591,10 +824,12 @@
         "&dates=" + dates +
         "&location=" + location;
 
+
       window.open(
         calendarURL,
         "_blank"
       );
+
     }
 
   </script>
