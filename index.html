@@ -32,7 +32,6 @@
       display: grid;
       place-items: center;
       padding: 18px;
-
       background:
         radial-gradient(
           circle at top,
@@ -40,13 +39,8 @@
           transparent 42%
         ),
         #e9dfd1;
-
       font-family: "Noto Serif Bengali", Georgia, serif;
     }
-
-    /* =====================================================
-       OUTER WRAPPER
-       ===================================================== */
 
     .page {
       width: min(92vw, 470px);
@@ -57,22 +51,12 @@
       perspective: 1600px;
     }
 
-    /* =====================================================
-       CARD
-       Front artwork is approximately 2:3.
-       ===================================================== */
-
     .card {
       width: 100%;
       aspect-ratio: 2 / 3;
-
       position: relative;
-
       transform-style: preserve-3d;
-
-      transition:
-        transform 1s cubic-bezier(.2,.72,.22,1);
-
+      transition: transform 1s cubic-bezier(.2,.72,.22,1);
       cursor: pointer;
     }
 
@@ -80,28 +64,19 @@
       transform: rotateY(180deg);
     }
 
-    /* =====================================================
-       CARD SIDES
-       ===================================================== */
-
     .side {
       position: absolute;
       inset: 0;
-
       border-radius: 6px;
       overflow: hidden;
-
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-
       box-shadow:
         0 22px 55px rgba(72,48,34,.17),
         0 3px 10px rgba(72,48,34,.08);
     }
 
-    /* =====================================================
-       FRONT
-       ===================================================== */
+    /* FRONT */
 
     .front {
       background: #2fc9d0;
@@ -110,37 +85,23 @@
     .front img {
       width: 100%;
       height: 100%;
-
       display: block;
-
       object-fit: contain;
-
       background: #2fc9d0;
     }
 
-    /* =====================================================
-       BACK
-       ===================================================== */
+    /* BACK */
 
     .back {
       transform: rotateY(180deg);
-
       background: var(--ivory);
       color: var(--brown);
-
-      padding:
-        clamp(26px, 7%, 38px)
-        clamp(22px, 9%, 42px);
-
+      padding: clamp(26px, 7%, 38px) clamp(22px, 9%, 42px);
       text-align: center;
-
       overflow-y: auto;
       overflow-x: hidden;
-
       -webkit-overflow-scrolling: touch;
-
       scrollbar-width: none;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -150,95 +111,56 @@
       display: none;
     }
 
-    /* =====================================================
-       BENGALI / ENGLISH CONTENT
-       ===================================================== */
-
     .top-line {
       color: var(--muted);
-
       font-size: clamp(12px, 3.1vw, 15px);
-
       margin-bottom: 5px;
     }
 
     .title {
       margin: 0;
-
       color: var(--maroon);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
+      font-family: "Noto Serif Bengali", Georgia, serif;
       font-size: clamp(25px, 7vw, 34px);
-
       font-weight: 600;
-
       line-height: 1.25;
     }
 
     .ornament {
       color: #a98b76;
-
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
+      font-family: "Playfair Display", Georgia, serif;
       font-size: 16px;
-
       margin: 4px 0 10px;
-
       letter-spacing: 4px;
     }
 
-    .names {
+    .names-bn {
       color: var(--maroon);
-
-      font-family:
-        "DM Serif Display",
-        Georgia,
-        serif;
-
-      font-size: clamp(27px, 7.2vw, 38px);
-
-      line-height: 1.12;
+      font-family: "Noto Serif Bengali", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(24px, 6.6vw, 34px);
+      line-height: 1.2;
     }
 
-    .names-bn {
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-weight: 600;
-
-      font-size: clamp(24px, 6.6vw, 34px);
+    .names-en {
+      color: var(--maroon);
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(27px, 7.2vw, 38px);
+      line-height: 1.12;
     }
 
     .intro {
       max-width: 350px;
-
-      margin:
-        12px auto 0;
-
+      margin: 12px auto 0;
       font-size: clamp(12.5px, 3.2vw, 14.5px);
-
       line-height: 1.8;
     }
 
     .closing {
       max-width: 340px;
-
-      margin:
-        9px auto 0;
-
+      margin: 9px auto 0;
       font-size: clamp(12.5px, 3.15vw, 14px);
-
       line-height: 1.75;
-
       color: var(--brown);
     }
 
@@ -247,84 +169,30 @@
       font-weight: 600;
     }
 
-    /* =====================================================
-       DATE / TIME
-       ===================================================== */
+    /* DATE / TIME */
 
     .details {
       width: min(100%, 320px);
-
-      margin:
-        15px auto 10px;
-
-      padding:
-        10px 8px;
-
-      border-top:
-        1px solid var(--line);
-
-      border-bottom:
-        1px solid var(--line);
+      margin: 15px auto 10px;
+      padding: 10px 8px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .date {
       color: var(--maroon);
-
       font-size: clamp(14px, 3.5vw, 16px);
-
       font-weight: 600;
-
       line-height: 1.5;
     }
 
     .time {
       color: var(--brown);
-
       font-size: clamp(12px, 3vw, 14px);
-
       margin-top: 2px;
     }
 
-    /* =====================================================
-       TRANSLATION LINK
-       ===================================================== */
-
-    .translate-button {
-      appearance: none;
-
-      align-self: center;
-
-      margin:
-        5px 0 5px;
-
-      padding:
-        2px 0;
-
-      border: 0;
-
-      border-bottom:
-        1px solid #a98b76;
-
-      background: transparent;
-
-      color: var(--maroon);
-
-      font:
-        11px/1.5
-        Inter,
-        Arial,
-        sans-serif;
-
-      cursor: pointer;
-    }
-
-    .translate-button:hover {
-      opacity: .7;
-    }
-
-    /* =====================================================
-       HIDDEN / VISIBLE TRANSLATIONS
-       ===================================================== */
+    /* TRANSLATION */
 
     .translation {
       display: none;
@@ -338,38 +206,39 @@
       display: none;
     }
 
-    /* =====================================================
-       SMALL INTERACTIVE LINKS
-       No bulky buttons.
-       ===================================================== */
+    .translate-button {
+      appearance: none;
+      align-self: center;
+      margin: 5px 0 7px;
+      padding: 2px 0;
+      border: 0;
+      border-bottom: 1px solid #a98b76;
+      background: transparent;
+      color: var(--maroon);
+      font: 11px/1.5 Inter, Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .translate-button:hover {
+      opacity: .7;
+    }
+
+    /* LOCATION + CALENDAR */
 
     .actions {
       display: flex;
-
       justify-content: center;
       align-items: center;
-
       flex-wrap: wrap;
-
-      margin-top: 9px;
+      margin-top: 6px;
     }
 
     .action {
       color: var(--maroon);
-
       text-decoration: none;
-
-      font:
-        10.5px/1.5
-        Inter,
-        Arial,
-        sans-serif;
-
-      padding:
-        2px 8px;
-
-      border-right:
-        1px solid var(--line);
+      font: 11px/1.5 Inter, Arial, sans-serif;
+      padding: 2px 10px;
+      border-right: 1px solid var(--line);
     }
 
     .action:last-child {
@@ -380,30 +249,16 @@
       opacity: .65;
     }
 
-    /* =====================================================
-       FLIP HINT
-       ===================================================== */
-
     .hint {
       text-align: center;
-
       margin-top: 14px;
-
       color: #80685f;
-
-      font:
-        11px/1.5
-        Inter,
-        Arial,
-        sans-serif;
+      font: 11px/1.5 Inter, Arial, sans-serif;
     }
 
-    /* =====================================================
-       SMALL PHONE
-       ===================================================== */
+    /* SMALL PHONES */
 
     @media (max-width: 390px) {
-
       body {
         padding: 10px;
       }
@@ -413,18 +268,8 @@
       }
 
       .back {
-        padding:
-          22px
-          20px;
+        padding: 22px 20px;
         justify-content: flex-start;
-      }
-
-      .top-line {
-        margin-top: 2px;
-      }
-
-      .ornament {
-        margin-bottom: 7px;
       }
 
       .intro {
@@ -444,7 +289,7 @@
       }
 
       .actions {
-        margin-top: 7px;
+        margin-top: 5px;
       }
 
       .hint {
@@ -452,15 +297,11 @@
       }
     }
 
-    /* =====================================================
-       VERY SHORT PHONE SCREENS
-       ===================================================== */
+    /* VERY SHORT SCREENS */
 
     @media (max-height: 700px) {
-
       body {
-        padding:
-          10px 14px;
+        padding: 10px 14px;
       }
 
       .page {
@@ -468,9 +309,7 @@
       }
 
       .back {
-        padding:
-          18px
-          18px;
+        padding: 18px;
         justify-content: flex-start;
       }
 
@@ -494,7 +333,7 @@
       }
 
       .actions {
-        margin-top: 5px;
+        margin-top: 4px;
       }
 
       .hint {
@@ -504,50 +343,27 @@
   </style>
 </head>
 
-
 <body>
 
   <main class="page">
 
-    <div
-      class="scene"
-      id="scene"
-    >
+    <div class="scene" id="scene">
 
-      <div
-        class="card"
-        id="card"
-      >
+      <div class="card" id="card">
 
-        <!-- =================================================
-             FRONT COVER
-             ================================================= -->
-
+        <!-- FRONT -->
         <section class="side front">
-
-          <!-- Your working file -->
           <img
             src="./front.png"
             alt="Ishika and Sukalyan wedding invitation cover"
           >
-
         </section>
 
-
-        <!-- =================================================
-             BACK
-             ================================================= -->
-
+        <!-- BACK -->
         <section class="side back">
 
-          <!-- =================================================
-               BENGALI VERSION
-               ================================================= -->
-
-          <div
-            class="bengali"
-            id="bengaliVersion"
-          >
+          <!-- BENGALI -->
+          <div class="bengali" id="bengaliVersion">
 
             <div class="top-line">
               ॥ শ্রী গণেশায় নমঃ ॥
@@ -561,7 +377,7 @@
               ── ♡ ──
             </div>
 
-            <div class="names names-bn">
+            <div class="names-bn">
               ঈশিকা ও সুকল্যাণ
             </div>
 
@@ -580,7 +396,6 @@
             </p>
 
             <div class="details">
-
               <div class="date">
                 ২৫শে নভেম্বর, ২০২৬
               </div>
@@ -588,16 +403,11 @@
               <div class="time">
                 বুধবার · বিকেল ৫টা
               </div>
-
             </div>
 
           </div>
 
-
-          <!-- =================================================
-               ENGLISH VERSION
-               ================================================= -->
-
+          <!-- ENGLISH -->
           <div
             class="translation"
             id="englishVersion"
@@ -615,7 +425,7 @@
               ── ♡ ──
             </div>
 
-            <div class="names">
+            <div class="names-en">
               Ishika & Sukalyan
             </div>
 
@@ -635,7 +445,6 @@
             </p>
 
             <div class="details">
-
               <div class="date">
                 25 November, 2026
               </div>
@@ -643,16 +452,11 @@
               <div class="time">
                 Wednesday · 5:00 PM
               </div>
-
             </div>
 
           </div>
 
-
-          <!-- =================================================
-               TRANSLATION
-               ================================================= -->
-
+          <!-- TRANSLATION -->
           <button
             type="button"
             class="translate-button"
@@ -662,20 +466,8 @@
             English translation
           </button>
 
-
-          <!-- =================================================
-               CONTACT / LOCATION / CALENDAR
-               ================================================= -->
-
+          <!-- ACTIONS -->
           <div class="actions">
-
-            <a
-              class="action"
-              href="tel:+919836543712"
-              onclick="event.stopPropagation()"
-            >
-              ☎ Contact
-            </a>
 
             <a
               class="action"
@@ -684,7 +476,7 @@
               rel="noopener"
               onclick="event.stopPropagation()"
             >
-              ♧ Location
+              📍 View location
             </a>
 
             <a
@@ -692,7 +484,7 @@
               href="#"
               onclick="event.stopPropagation(); addToCalendar(); return false;"
             >
-              ♡ Calendar
+              📅 Add to calendar
             </a>
 
           </div>
@@ -703,26 +495,15 @@
 
     </div>
 
-
-    <!-- =====================================================
-         FLIP HINT
-         ===================================================== -->
-
-    <div
-      class="hint"
-      id="hint"
-    >
+    <div class="hint" id="hint">
       আমন্ত্রণটি খুলতে স্পর্শ করুন ♡
     </div>
 
   </main>
 
-
   <script>
 
-    /* =====================================================
-       CARD FLIP
-       ===================================================== */
+    /* CARD FLIP */
 
     const scene =
       document.getElementById("scene");
@@ -733,29 +514,22 @@
     const hint =
       document.getElementById("hint");
 
-
     card.addEventListener("click", () => {
 
       scene.classList.toggle("open");
 
       if (scene.classList.contains("open")) {
-
         hint.textContent =
           "বন্ধ করতে আবার স্পর্শ করুন ♡";
-
       } else {
-
         hint.textContent =
           "আমন্ত্রণটি খুলতে স্পর্শ করুন ♡";
-
       }
 
     });
 
 
-    /* =====================================================
-       ENGLISH / BENGALI TOGGLE
-       ===================================================== */
+    /* ENGLISH / BENGALI TOGGLE */
 
     function toggleTranslation(event) {
 
@@ -770,10 +544,8 @@
       const button =
         document.getElementById("translateButton");
 
-
       const isEnglish =
         english.classList.contains("show");
-
 
       if (isEnglish) {
 
@@ -792,13 +564,10 @@
           "বাংলায় দেখুন";
 
       }
-
     }
 
 
-    /* =====================================================
-       GOOGLE CALENDAR
-       ===================================================== */
+    /* GOOGLE CALENDAR */
 
     function addToCalendar() {
 
@@ -826,7 +595,6 @@
         calendarURL,
         "_blank"
       );
-
     }
 
   </script>
