@@ -1,95 +1,569 @@
 <!doctype html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ishika & Sukalyan — Wedding</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:#eee6d8;font-family:Georgia,"Noto Serif Bengali",serif}
-.wrap{width:min(88vw,420px);perspective:1400px}
-.card{width:100%;aspect-ratio:3/4.2;position:relative;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.2,.75,.25,1);cursor:pointer}
-.wrap.open .card{transform:rotateY(180deg)}
-.side{position:absolute;inset:0;border-radius:8px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 18px 45px #0002}
-.front{background:#6db4c1}
-.front img{width:100%;height:100%;display:block;object-fit:cover}
-.back{transform:rotateY(180deg);background:#fffaf0;color:#542f2c;padding:9%;text-align:center;overflow-y:auto}
-.back h2{margin:0 0 10px;font-size:26px;font-weight:600}
-.back h3{margin:14px 0 5px;font-size:18px}
-.back p{font-size:14px;line-height:1.65;margin:6px 0}
-.orn{font-size:20px;margin:4px}
-.details{border-block:1px solid #cbb9a5;padding:10px;margin-top:12px}
-.buttons{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-.buttons a{background:#6f3c37;color:#fffaf0;text-decoration:none;padding:9px 12px;border-radius:20px;font:13px Arial}
-.hint{text-align:center;color:#6f5148;font:14px Arial;margin-top:18px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ishika & Sukalyan — Wedding Invitation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eee6d8;
+      font-family: Georgia, "Noto Serif Bengali", serif;
+    }
+
+    .wrap {
+      width: min(88vw, 420px);
+      perspective: 1400px;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 3 / 4.2;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s cubic-bezier(.2,.75,.25,1);
+      cursor: pointer;
+    }
+
+    .wrap.open .card {
+      transform: rotateY(180deg);
+    }
+
+    .side {
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      overflow: hidden;
+
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+
+      box-shadow: 0 18px 45px rgba(0,0,0,.13);
+    }
+
+
+    /* =========================
+       FRONT COVER
+       ========================= */
+
+    .front {
+      background: #6db4c1;
+    }
+
+    .front img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+
+    /* =========================
+       BACK
+       ========================= */
+
+    .back {
+      transform: rotateY(180deg);
+
+      background: #fffaf0;
+      color: #542f2c;
+
+      padding: 8% 9%;
+
+      text-align: center;
+
+      overflow-y: auto;
+    }
+
+    .back h1 {
+      margin: 2px 0 2px;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .back h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .back p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 7px 0;
+    }
+
+    .orn {
+      font-size: 19px;
+      margin: 2px 0 7px;
+    }
+
+
+    /* =========================
+       EVENT DETAILS
+       ========================= */
+
+    .details {
+      border-top: 1px solid #cbb9a5;
+      border-bottom: 1px solid #cbb9a5;
+
+      padding: 11px 5px;
+
+      margin: 15px 0 12px;
+    }
+
+    .details p {
+      margin: 3px 0;
+    }
+
+
+    /* =========================
+       TRANSLATION
+       ========================= */
+
+    .translation {
+      display: none;
+    }
+
+    .translation.show {
+      display: block;
+    }
+
+    .bengali.hide {
+      display: none;
+    }
+
+    .translate-button {
+      display: inline-block;
+
+      margin: 5px 0 10px;
+
+      padding: 7px 14px;
+
+      border: 1px solid #8c625b;
+      border-radius: 20px;
+
+      background: transparent;
+
+      color: #6f3c37;
+
+      font: 12px Arial, sans-serif;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       ACTION BUTTONS
+       ========================= */
+
+    .buttons {
+      display: flex;
+      gap: 7px;
+
+      justify-content: center;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      margin-top: 14px;
+    }
+
+    .button {
+      display: inline-block;
+
+      background: #6f3c37;
+      color: #fffaf0;
+
+      text-decoration: none;
+
+      padding: 9px 12px;
+
+      border-radius: 22px;
+
+      font: 12px Arial, sans-serif;
+
+      transition: transform .15s ease,
+                  opacity .15s ease;
+    }
+
+    .button:active {
+      transform: scale(.96);
+      opacity: .85;
+    }
+
+
+    /* =========================
+       FLIP HINT
+       ========================= */
+
+    .hint {
+      text-align: center;
+
+      color: #6f5148;
+
+      font: 14px Arial, sans-serif;
+
+      margin-top: 18px;
+    }
+  </style>
 </head>
+
+
 <body>
+
 <div>
-<div class="wrap" id="cardWrap">
-<div class="card" id="card">
 
-<section class="side front">
-<img src="front.png" alt="Ishika and Sukalyan wedding invitation cover">
-</section>
+  <div class="wrap" id="cardWrap">
 
-<section class="side back">
-<div class="orn">॥ শ্রী গণেশায় নমঃ ॥</div>
-<h2>শুভ বিবাহ</h2>
+    <div class="card" id="card">
 
-<p>পরম করুণাময়ের অসীম কৃপায় ও আপনাদের সকলের আশীর্বাদে আমাদের শুভ বিবাহ উপলক্ষে আপনাদের সপরিবারে সস্নেহে আমন্ত্রণ জানাই।</p>
 
-<h3>ঈশিকা সাহা</h3>
-<p>কন্যা — শ্রী বিজন কুমার সাহা ও শ্রীমতী স্মিতা সাহা<br>
-ভ্রাতা — শ্রী অর্ণব সাহা</p>
+      <!-- =====================================
+           FRONT
+           ===================================== -->
 
-<div class="orn">♡</div>
+      <section class="side front">
 
-<h3>সুকল্যাণ সেন</h3>
-<p>পুত্র — শ্রী শৈবাল কুমার সেন ও শ্রীমতী চুমকি সেন</p>
+        <img
+          src="front.jpg"
+          alt="Ishika and Sukalyan wedding invitation"
+        >
 
-<div class="details">
-<p><strong>২৫শে নভেম্বর, ২০২৬, বুধবার</strong><br>
-<strong>বিকেল ৫টা</strong></p>
+      </section>
 
-<p><strong>কালিন্দী প্লট ওনার্স অ্যাসোসিয়েশন</strong><br>
-৮১/১, কালিন্দী হাউসিং এস্টেট<br>
-<strong>কলকাতা – ৭০০০৮৯</strong></p>
+
+      <!-- =====================================
+           BACK
+           ===================================== -->
+
+      <section class="side back">
+
+
+        <!-- ===============================
+             BENGALI VERSION
+             =============================== -->
+
+        <div class="bengali" id="bengaliVersion">
+
+          <div class="orn">
+            ♡
+          </div>
+
+          <h2>
+            শুভ বিবাহ
+          </h2>
+
+          <h1>
+            ঈশিকা ও সুকল্যাণ
+          </h1>
+
+
+          <p>
+            দুই পরিবারের ভালোবাসা ও আশীর্বাদ সঙ্গে নিয়ে
+            আমরা শুরু করতে চলেছি আমাদের নতুন পথচলা।
+          </p>
+
+
+          <p>
+            এই বিশেষ দিনে আমাদের প্রিয় মানুষদের
+            সঙ্গে নিয়ে একটু আনন্দ করতে চাই।
+            তোমাদের উপস্থিতি এই দিনটাকে আরও সুন্দর করে তুলবে। ♡
+          </p>
+
+
+          <div class="details">
+
+            <p>
+              <strong>
+                ২৫শে নভেম্বর, ২০২৬ | বুধবার
+              </strong>
+            </p>
+
+            <p>
+              <strong>
+                বিকেল ৫টা
+              </strong>
+            </p>
+
+          </div>
+
+
+          <p>
+            তোমাদের আসা কিন্তু চাই-ই চাই! ♡
+          </p>
+
+        </div>
+
+
+        <!-- ===============================
+             ENGLISH VERSION
+             =============================== -->
+
+        <div
+          class="translation"
+          id="englishVersion"
+        >
+
+          <div class="orn">
+            ♡
+          </div>
+
+          <h2>
+            A New Chapter Begins
+          </h2>
+
+          <h1>
+            Ishika & Sukalyan
+          </h1>
+
+
+          <p>
+            With the love and blessings of our families,
+            we're beginning a new chapter together.
+          </p>
+
+
+          <p>
+            We'd love to celebrate this special day
+            with the people who make our lives
+            a little brighter.
+            Your presence would make our day
+            even more special. ♡
+          </p>
+
+
+          <div class="details">
+
+            <p>
+              <strong>
+                25 November 2026 | Wednesday
+              </strong>
+            </p>
+
+            <p>
+              <strong>
+                5:00 PM
+              </strong>
+            </p>
+
+          </div>
+
+
+          <p>
+            We really hope you'll be there! ♡
+          </p>
+
+        </div>
+
+
+        <!-- ===============================
+             TRANSLATION BUTTON
+             =============================== -->
+
+        <button
+          class="translate-button"
+          id="translateButton"
+          onclick="toggleTranslation(event)"
+        >
+          🌐 English Translation
+        </button>
+
+
+        <!-- ===============================
+             ACTION BUTTONS
+             =============================== -->
+
+        <div class="buttons">
+
+
+          <!-- CONTACT -->
+
+          <a
+            class="button"
+            href="tel:+919836543712"
+            onclick="event.stopPropagation()"
+          >
+            📞 Contact
+          </a>
+
+
+          <!-- LOCATION -->
+
+          <a
+            class="button"
+            href="https://www.google.com/maps/search/?api=1&query=Kalindi+Plot+Owners+Association%2C+81%2F1+Kalindi+Housing+Estate%2C+Kolkata+700089"
+            target="_blank"
+            rel="noopener"
+            onclick="event.stopPropagation()"
+          >
+            📍 View Location
+          </a>
+
+
+          <!-- CALENDAR -->
+
+          <a
+            class="button"
+            href="#"
+            onclick="event.stopPropagation(); addToCalendar(); return false;"
+          >
+            📅 Add to Calendar
+          </a>
+
+        </div>
+
+
+      </section>
+
+    </div>
+
+  </div>
+
+
+  <!-- FLIP INSTRUCTION -->
+
+  <div
+    class="hint"
+    id="hint"
+  >
+    আমন্ত্রণটি খুলতে স্পর্শ করুন ♡
+  </div>
+
 </div>
 
-<p><strong>যোগাযোগ:</strong> ৯৮৩৬৫৪৩৭১২</p>
-
-<p><em>আপনাদের উপস্থিতি ও আশীর্বাদ আমাদের এই শুভদিনকে পূর্ণতা দেবে।</em></p>
-
-<div class="buttons">
-<a href="https://www.google.com/maps/search/?api=1&query=Kalindi+Plot+Owners+Association%2C+81%2F1+Kalindi+Housing+Estate%2C+Kolkata+700089" target="_blank" onclick="event.stopPropagation()">📍 স্থান দেখুন</a>
-<a href="#" onclick="event.stopPropagation();calendar()">📅 ক্যালেন্ডারে যোগ করুন</a>
-</div>
-</section>
-
-</div>
-</div>
-<div class="hint" id="hint">আমন্ত্রণটি খুলতে স্পর্শ করুন ♡</div>
-</div>
 
 <script>
-const w=document.getElementById("cardWrap");
-const h=document.getElementById("hint");
 
-document.getElementById("card").addEventListener("click",()=>{
-  w.classList.toggle("open");
-  h.textContent=w.classList.contains("open")
-    ?"বন্ধ করতে আবার স্পর্শ করুন ♡"
-    :"আমন্ত্রণটি খুলতে স্পর্শ করুন ♡";
-});
+  /* ==========================================
+     CARD FLIP
+     ========================================== */
 
-function calendar(){
-  const u="https://calendar.google.com/calendar/render?action=TEMPLATE"
-    +"&text="+encodeURIComponent("Ishika & Sukalyan — Wedding")
-    +"&dates=20261125T170000/20261125T200000"
-    +"&location="+encodeURIComponent("Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089");
-  window.open(u,"_blank");
-}
+  const cardWrap =
+    document.getElementById("cardWrap");
+
+  const card =
+    document.getElementById("card");
+
+  const hint =
+    document.getElementById("hint");
+
+
+  card.addEventListener("click", function () {
+
+    cardWrap.classList.toggle("open");
+
+
+    if (cardWrap.classList.contains("open")) {
+
+      hint.textContent =
+        "বন্ধ করতে আবার স্পর্শ করুন ♡";
+
+    } else {
+
+      hint.textContent =
+        "আমন্ত্রণটি খুলতে স্পর্শ করুন ♡";
+
+    }
+
+  });
+
+
+
+  /* ==========================================
+     ENGLISH TRANSLATION
+     ========================================== */
+
+  function toggleTranslation(event) {
+
+    event.stopPropagation();
+
+
+    const bengali =
+      document.getElementById("bengaliVersion");
+
+    const english =
+      document.getElementById("englishVersion");
+
+    const button =
+      document.getElementById("translateButton");
+
+
+    const showingEnglish =
+      english.classList.contains("show");
+
+
+    if (showingEnglish) {
+
+      english.classList.remove("show");
+
+      bengali.classList.remove("hide");
+
+      button.textContent =
+        "🌐 English Translation";
+
+    } else {
+
+      bengali.classList.add("hide");
+
+      english.classList.add("show");
+
+      button.textContent =
+        "🌐 বাংলা দেখুন";
+
+    }
+
+  }
+
+
+
+  /* ==========================================
+     GOOGLE CALENDAR
+     ========================================== */
+
+  function addToCalendar() {
+
+    const title =
+      encodeURIComponent(
+        "Ishika & Sukalyan — Wedding"
+      );
+
+
+    const dates =
+      "20261125T170000/20261125T200000";
+
+
+    const location =
+      encodeURIComponent(
+        "Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089"
+      );
+
+
+    const calendarURL =
+      "https://calendar.google.com/calendar/render" +
+      "?action=TEMPLATE" +
+      "&text=" + title +
+      "&dates=" + dates +
+      "&location=" + location;
+
+
+    window.open(
+      calendarURL,
+      "_blank"
+    );
+
+  }
+
 </script>
+
 </body>
 </html>
