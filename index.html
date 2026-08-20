@@ -7,26 +7,17 @@
   <title>Ishika & Sukalyan — Wedding Invitation</title>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500&display=swap"
     rel="stylesheet"
   >
 
   <style>
-
     :root {
-      --paper: #fffaf1;
-      --paper-deep: #fdf6e9;
-
-      --maroon: #641f1b;
-      --maroon-dark: #551815;
-
-      --gold: #b77b28;
-      --gold-light: #d4a35b;
-
-      --text: #632a25;
-      --muted: #86665c;
-
-      --shadow: rgba(74, 45, 29, .16);
+      --ivory: #fffaf0;
+      --maroon: #713b36;
+      --brown: #5e4740;
+      --muted: #91766d;
+      --line: #dccbbb;
     }
 
     * {
@@ -41,19 +32,16 @@
 
     body {
       min-height: 100vh;
-
       display: grid;
       place-items: center;
-
       padding: 18px;
-
       background:
         radial-gradient(
           circle at top,
-          rgba(255,255,255,.8),
-          transparent 45%
+          rgba(255,255,255,.72),
+          transparent 42%
         ),
-        #e8ded0;
+        #e9dfd1;
     }
 
     .page {
@@ -68,7 +56,6 @@
     .card {
       width: 100%;
       aspect-ratio: 2 / 3;
-
       position: relative;
 
       transform-style: preserve-3d;
@@ -88,21 +75,19 @@
       inset: 0;
 
       overflow: hidden;
-
-      border-radius: 3px;
+      border-radius: 6px;
 
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
 
       box-shadow:
-        0 22px 55px var(--shadow),
+        0 22px 55px rgba(72,48,34,.17),
         0 3px 10px rgba(72,48,34,.08);
     }
 
-
-    /* ==================================================
+    /* =========================
        FRONT
-       ================================================== */
+       ========================= */
 
     .front {
       background: #2fc9d0;
@@ -111,33 +96,24 @@
     .front img {
       width: 100%;
       height: 100%;
-
       display: block;
-
       object-fit: contain;
-
       background: #2fc9d0;
     }
 
-
-    /* ==================================================
+    /* =========================
        BACK
-       ================================================== */
+       ========================= */
 
     .back {
       transform: rotateY(180deg);
 
-      background:
-        radial-gradient(
-          circle at 50% 30%,
-          rgba(255,255,255,.7),
-          transparent 55%
-        ),
-        var(--paper);
+      background: var(--ivory);
+      color: var(--brown);
 
-      color: var(--text);
-
-      padding: 23px 25px 20px;
+      padding:
+        clamp(26px, 7%, 38px)
+        clamp(22px, 9%, 42px);
 
       text-align: center;
 
@@ -145,269 +121,35 @@
       overflow-x: hidden;
 
       -webkit-overflow-scrolling: touch;
-
       scrollbar-width: none;
 
-      display: block;
-
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .back::-webkit-scrollbar {
       display: none;
     }
 
+    /* =========================
+       BENGALI / ENGLISH TYPOGRAPHY
+       ========================= */
 
-    /* ==================================================
-       DOUBLE BORDER
-       ================================================== */
-
-    .back::before {
-      content: "";
-
-      position: absolute;
-
-      inset: 8px;
-
-      border: 1.4px solid var(--gold);
-
-      pointer-events: none;
-    }
-
-    .back::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 17px;
-
-      border: 1px solid var(--gold-light);
-
-      pointer-events: none;
-    }
-
-
-    /* ==================================================
-       CONTENT WRAPPER
-       ================================================== */
-
-    .invitation-content {
-      position: relative;
-
-      z-index: 2;
-
-      width: 100%;
-
-      min-height: 100%;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-    }
-
-
-    /* ==================================================
-       LOTUS ORNAMENT
-       ================================================== */
-
-    .lotus {
-      width: 105px;
-
-      margin-top: 8px;
-      margin-bottom: 8px;
-
-      color: var(--gold);
-
-      font-family:
-        Georgia,
-        serif;
-
-      font-size: 25px;
-
-      line-height: 1;
-
-      position: relative;
-    }
-
-    .lotus::before,
-    .lotus::after {
-      content: "";
-
-      position: absolute;
-
-      top: 14px;
-
-      width: 42px;
-
-      height: 1px;
-
-      background: var(--gold);
-    }
-
-    .lotus::before {
-      right: calc(100% - 2px);
-    }
-
-    .lotus::after {
-      left: calc(100% - 2px);
-    }
-
-    .lotus-symbol {
-      display: inline-block;
-
-      transform: scaleX(1.25);
-
-      color: var(--gold);
-    }
-
-
-    /* ==================================================
-       BRIDE / GROOM SECTION
-       ================================================== */
-
-    .couple-section {
-      width: 100%;
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      margin-top: 8px;
-
-      position: relative;
-    }
-
-    .person {
-      padding: 0 12px;
-    }
-
-    .person:first-child {
-      border-right: 1px solid var(--gold-light);
-    }
-
-    .role {
-      color: var(--gold);
-
-      font-family:
-        "Noto Serif Bengali",
-        serif;
-
-      font-size: clamp(15px, 4vw, 18px);
-
-      font-weight: 600;
-
-      margin-bottom: 8px;
-
-      line-height: 1.4;
-
-      position: relative;
-    }
-
-    .role::before,
-    .role::after {
-      content: "❧";
-
-      color: var(--gold);
-
-      font-size: 13px;
-
-      margin: 0 7px;
-    }
-
-    .person-name {
-      color: var(--maroon);
+    .top-line {
+      color: var(--muted);
 
       font-family:
         "Noto Serif Bengali",
         Georgia,
         serif;
 
-      font-size: clamp(20px, 5.4vw, 27px);
-
-      font-weight: 600;
-
-      line-height: 1.35;
-
-      margin-bottom: 10px;
-
-      white-space: nowrap;
+      font-size: clamp(12px, 3.1vw, 15px);
+      margin-bottom: 5px;
     }
 
-    .person-details {
-      color: var(--text);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-size: clamp(11px, 2.8vw, 13px);
-
-      line-height: 1.7;
-    }
-
-    .person-details strong {
-      font-weight: 600;
-    }
-
-
-    /* ==================================================
-       SMALL CENTRAL DIAMOND
-       ================================================== */
-
-    .couple-section::after {
-      content: "";
-
-      position: absolute;
-
-      top: 50%;
-
-      left: 50%;
-
-      width: 8px;
-      height: 8px;
-
-      background: var(--gold);
-
-      transform:
-        translate(-50%, -50%)
-        rotate(45deg);
-    }
-
-
-    /* ==================================================
-       SECTION DIVIDER
-       ================================================== */
-
-    .section-divider {
-      width: 78%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      margin: 18px auto 8px;
-
-      color: var(--gold);
-    }
-
-    .section-divider::before,
-    .section-divider::after {
-      content: "";
-
-      height: 1px;
-
-      background: var(--gold);
-
-      flex: 1;
-    }
-
-    .section-divider span {
-      margin: 0 10px;
+    .title {
+      margin: 0;
 
       color: var(--maroon);
 
@@ -416,277 +158,143 @@
         Georgia,
         serif;
 
-      font-size: clamp(19px, 5vw, 24px);
-
+      font-size: clamp(25px, 7vw, 34px);
       font-weight: 600;
 
-      white-space: nowrap;
+      line-height: 1.25;
     }
 
+    .ornament {
+      color: #a98b76;
 
-    /* ==================================================
-       DATE
-       ================================================== */
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    .date-section {
-      text-align: center;
+      font-size: 16px;
 
-      width: 100%;
+      margin: 4px 0 10px;
+
+      letter-spacing: 4px;
+    }
+
+    .names-bn {
+      color: var(--maroon);
+
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
+
+      font-size: clamp(24px, 6.6vw, 34px);
+      font-weight: 600;
+
+      line-height: 1.2;
+    }
+
+    .names-en {
+      color: var(--maroon);
+
+      font-family:
+        "DM Serif Display",
+        Georgia,
+        serif;
+
+      font-size: clamp(27px, 7.2vw, 38px);
+      font-weight: 400;
+
+      line-height: 1.12;
+    }
+
+    .intro {
+      max-width: 350px;
+
+      margin: 13px auto 0;
+
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
+
+      font-size: clamp(12.5px, 3.2vw, 14.5px);
+      line-height: 1.8;
+    }
+
+    .closing {
+      max-width: 340px;
+
+      margin: 10px auto 0;
+
+      font-family:
+        "Noto Serif Bengali",
+        Georgia,
+        serif;
+
+      font-size: clamp(12.5px, 3.15vw, 14px);
+      line-height: 1.75;
+    }
+
+    .highlight {
+      display: block;
+      margin-top: 4px;
+
+      color: var(--maroon);
+      font-weight: 600;
+    }
+
+    /* =========================
+       DATE / TIME
+       ========================= */
+
+    .details {
+      width: min(100%, 320px);
+
+      margin:
+        15px auto 10px;
+
+      padding:
+        10px 8px;
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .date {
       color: var(--maroon);
 
       font-family:
-        "Noto Serif Bengali",
+        "DM Serif Display",
         Georgia,
         serif;
 
-      font-size: clamp(17px, 4.5vw, 22px);
+      font-size: clamp(17px, 4.2vw, 21px);
+      font-weight: 400;
 
-      font-weight: 600;
-
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .time {
-      color: var(--text);
+      color: var(--brown);
 
       font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
+        "Inter",
+        Arial,
+        sans-serif;
 
-      font-size: clamp(14px, 3.5vw, 17px);
+      font-size: clamp(11px, 2.8vw, 13px);
 
-      margin-top: 2px;
+      margin-top: 3px;
 
-      line-height: 1.5;
+      letter-spacing: .2px;
     }
 
-
-    /* ==================================================
-       VENUE
-       ================================================== */
-
-    .venue-divider {
-      width: 78%;
-
-      margin: 12px auto 8px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-    }
-
-    .venue-divider::before,
-    .venue-divider::after {
-      content: "";
-
-      height: 1px;
-
-      background: var(--gold);
-
-      flex: 1;
-    }
-
-    .venue-divider span {
-      width: 7px;
-      height: 7px;
-
-      background: var(--gold);
-
-      transform: rotate(45deg);
-
-      margin: 0 9px;
-    }
-
-    .venue-label {
-      color: var(--gold);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-size: clamp(14px, 3.7vw, 17px);
-
-      font-weight: 500;
-
-      margin-bottom: 3px;
-    }
-
-    .venue {
-      color: var(--maroon);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-size: clamp(19px, 5vw, 24px);
-
-      font-weight: 600;
-
-      line-height: 1.4;
-    }
-
-    .venue-address {
-      color: var(--text);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-size: clamp(11px, 2.9vw, 14px);
-
-      line-height: 1.6;
-
-      margin-top: 2px;
-    }
-
-
-    /* ==================================================
-       INVITATION MESSAGE
-       ================================================== */
-
-    .message-divider {
-      margin: 10px auto 8px;
-
-      color: var(--gold);
-
-      font-family:
-        Georgia,
-        serif;
-
-      font-size: 17px;
-
-      letter-spacing: 3px;
-    }
-
-    .message {
-      max-width: 360px;
-
-      margin: 0 auto;
-
-      color: var(--text);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-size: clamp(11.5px, 3vw, 14px);
-
-      line-height: 1.7;
-
-      text-align: center;
-    }
-
-    .message .greeting {
-      display: block;
-
-      color: var(--maroon);
-
-      font-size: clamp(15px, 4vw, 18px);
-
-      margin-bottom: 4px;
-    }
-
-
-    /* ==================================================
-       CLOSING
-       ================================================== */
-
-    .closing-divider {
-      margin: 7px auto 5px;
-
-      color: var(--gold);
-
-      font-size: 13px;
-
-      letter-spacing: 2px;
-    }
-
-    .closing {
-      color: var(--maroon);
-
-      font-family:
-        "Noto Serif Bengali",
-        Georgia,
-        serif;
-
-      font-size: clamp(13px, 3.4vw, 16px);
-
-      line-height: 1.55;
-    }
-
-    .closing strong {
-      display: block;
-
-      font-size: clamp(14px, 3.7vw, 17px);
-
-      font-weight: 600;
-    }
-
-
-    /* ==================================================
-       BOTTOM LOTUS
-       ================================================== */
-
-    .bottom-lotus {
-      color: var(--gold);
-
-      font-family:
-        Georgia,
-        serif;
-
-      font-size: 26px;
-
-      margin-top: 5px;
-
-      line-height: 1;
-
-      position: relative;
-
-      width: 110px;
-    }
-
-    .bottom-lotus::before,
-    .bottom-lotus::after {
-      content: "";
-
-      position: absolute;
-
-      top: 13px;
-
-      width: 43px;
-
-      height: 1px;
-
-      background: var(--gold);
-    }
-
-    .bottom-lotus::before {
-      right: calc(100% - 2px);
-    }
-
-    .bottom-lotus::after {
-      left: calc(100% - 2px);
-    }
-
-
-    /* ==================================================
+    /* =========================
        TRANSLATION
-       ================================================== */
+       ========================= */
 
     .translation {
       display: none;
-
-      width: 100%;
     }
 
     .translation.show {
@@ -700,24 +308,20 @@
     .translate-button {
       appearance: none;
 
-      position: relative;
+      align-self: center;
 
-      z-index: 5;
-
-      margin: 12px 0 3px;
-
-      padding: 2px 8px;
+      margin: 5px 0 7px;
+      padding: 2px 0;
 
       border: 0;
-
-      border-bottom: 1px solid var(--gold);
+      border-bottom: 1px solid #a98b76;
 
       background: transparent;
 
       color: var(--maroon);
 
       font:
-        10px/1.5
+        11px/1.5
         Inter,
         Arial,
         sans-serif;
@@ -729,25 +333,17 @@
       opacity: .7;
     }
 
-
-    /* ==================================================
+    /* =========================
        ACTIONS
-       ================================================== */
+       ========================= */
 
     .actions {
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       flex-wrap: wrap;
 
-      position: relative;
-
-      z-index: 5;
-
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .action {
@@ -756,14 +352,14 @@
       text-decoration: none;
 
       font:
-        10px/1.5
+        11px/1.5
         Inter,
         Arial,
         sans-serif;
 
-      padding: 2px 9px;
+      padding: 2px 10px;
 
-      border-right: 1px solid var(--gold-light);
+      border-right: 1px solid var(--line);
     }
 
     .action:last-child {
@@ -774,10 +370,9 @@
       opacity: .65;
     }
 
-
-    /* ==================================================
+    /* =========================
        FLIP HINT
-       ================================================== */
+       ========================= */
 
     .hint {
       text-align: center;
@@ -793,108 +388,13 @@
         sans-serif;
     }
 
-
-    /* ==================================================
-       ENGLISH VERSION
-       ================================================== */
-
-    .english-inner {
-      padding-top: 5px;
-    }
-
-    .english-inner .top-line {
-      color: var(--gold);
-
-      font:
-        11px/1.5
-        Inter,
-        Arial,
-        sans-serif;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-    .english-inner .english-title {
-      color: var(--maroon);
-
-      font-family:
-        "DM Serif Display",
-        Georgia,
-        serif;
-
-      font-size: clamp(27px, 7vw, 35px);
-
-      margin: 4px 0;
-
-      font-weight: 400;
-    }
-
-    .english-names {
-      color: var(--maroon);
-
-      font-family:
-        "DM Serif Display",
-        Georgia,
-        serif;
-
-      font-size: clamp(26px, 6.7vw, 36px);
-
-      margin: 12px 0;
-    }
-
-    .english-message {
-      color: var(--text);
-
-      font-family:
-        Georgia,
-        serif;
-
-      font-size: 13px;
-
-      line-height: 1.75;
-
-      max-width: 320px;
-
-      margin: 15px auto;
-    }
-
-    .english-details {
-      color: var(--maroon);
-
-      font-family:
-        "DM Serif Display",
-        Georgia,
-        serif;
-
-      font-size: 20px;
-
-      margin: 15px 0;
-    }
-
-    .english-venue {
-      color: var(--maroon);
-
-      font-family:
-        "DM Serif Display",
-        Georgia,
-        serif;
-
-      font-size: 23px;
-
-      margin-top: 8px;
-    }
-
-
-    /* ==================================================
+    /* =========================
        SMALL PHONES
-       ================================================== */
+       ========================= */
 
     @media (max-width: 390px) {
-
       body {
-        padding: 8px;
+        padding: 10px;
       }
 
       .page {
@@ -902,65 +402,42 @@
       }
 
       .back {
-        padding: 20px 20px 16px;
+        padding: 22px 20px;
+        justify-content: flex-start;
       }
 
-      .back::before {
-        inset: 7px;
+      .intro {
+        margin-top: 9px;
+        line-height: 1.68;
       }
 
-      .back::after {
-        inset: 14px;
-      }
-
-      .lotus {
-        margin-top: 4px;
-        margin-bottom: 3px;
-      }
-
-      .person {
-        padding: 0 7px;
-      }
-
-      .person-name {
-        font-size: 18px;
-      }
-
-      .person-details {
-        font-size: 10.5px;
-        line-height: 1.55;
-      }
-
-      .role {
-        font-size: 14px;
-      }
-
-      .section-divider {
-        margin-top: 13px;
-      }
-
-      .message {
-        line-height: 1.55;
-      }
-
-      .translate-button {
+      .closing {
         margin-top: 7px;
+        line-height: 1.65;
+      }
+
+      .details {
+        margin-top: 11px;
+        margin-bottom: 8px;
+        padding: 8px 5px;
       }
 
       .actions {
-        margin-top: 3px;
+        margin-top: 4px;
+      }
+
+      .hint {
+        margin-top: 10px;
       }
     }
 
-
-    /* ==================================================
+    /* =========================
        SHORT SCREENS
-       ================================================== */
+       ========================= */
 
     @media (max-height: 700px) {
-
       body {
-        padding: 8px 12px;
+        padding: 10px 14px;
       }
 
       .page {
@@ -968,53 +445,37 @@
       }
 
       .back {
-        padding: 17px 18px 13px;
+        padding: 18px;
+        justify-content: flex-start;
       }
 
-      .lotus {
-        margin-top: 2px;
-        margin-bottom: 2px;
+      .intro {
+        margin-top: 7px;
+        line-height: 1.55;
       }
 
-      .person-name {
-        font-size: 19px;
+      .closing {
+        margin-top: 5px;
+        line-height: 1.55;
       }
 
-      .person-details {
-        font-size: 10.5px;
-        line-height: 1.5;
-      }
-
-      .section-divider {
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      .venue-divider {
+      .details {
         margin-top: 8px;
-      }
-
-      .message-divider {
-        margin: 6px auto 4px;
-      }
-
-      .message {
-        line-height: 1.5;
-      }
-
-      .bottom-lotus {
-        margin-top: 2px;
+        margin-bottom: 6px;
       }
 
       .translate-button {
-        margin-top: 5px;
+        margin-top: 2px;
+      }
+
+      .actions {
+        margin-top: 3px;
       }
 
       .hint {
         margin-top: 7px;
       }
     }
-
   </style>
 </head>
 
@@ -1028,9 +489,9 @@
       <div class="card" id="card">
 
 
-        <!-- =================================================
+        <!-- =========================================
              FRONT
-             ================================================= -->
+             ========================================= -->
 
         <section class="side front">
 
@@ -1042,337 +503,160 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =========================================
              BACK
-             ================================================= -->
+             ========================================= -->
 
         <section class="side back">
 
-          <div class="invitation-content">
 
+          <!-- ======================================
+               BENGALI
+               ====================================== -->
 
-            <!-- =================================================
-                 BENGALI VERSION
-                 ================================================= -->
+          <div
+            class="bengali"
+            id="bengaliVersion"
+          >
 
-            <div
-              class="bengali"
-              id="bengaliVersion"
-            >
-
-
-              <!-- TOP LOTUS -->
-
-              <div class="lotus">
-                <span class="lotus-symbol">♧</span>
-              </div>
-
-
-              <!-- BRIDE + GROOM -->
-
-              <div class="couple-section">
-
-
-                <!-- BRIDE -->
-
-                <div class="person">
-
-                  <div class="role">
-                    পাত্রী
-                  </div>
-
-                  <div class="person-name">
-                    কল্যাণীয়া ঈশিকা সাহা
-                  </div>
-
-                  <div class="person-details">
-
-                    <div>
-                      পিতা: <strong>শ্রী [পিতার নাম]</strong>
-                    </div>
-
-                    <div>
-                      মাতা: <strong>শ্রীমতী [মাতার নাম]</strong>
-                    </div>
-
-                    <div>
-                      নিবাস: <strong>[ঠিকানা]</strong>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                <!-- GROOM -->
-
-                <div class="person">
-
-                  <div class="role">
-                    পাত্র
-                  </div>
-
-                  <div class="person-name">
-                    কল্যাণীয় সুকল্যাণ সেন
-                  </div>
-
-                  <div class="person-details">
-
-                    <div>
-                      পিতা: <strong>শ্রী [পিতার নাম]</strong>
-                    </div>
-
-                    <div>
-                      মাতা: <strong>শ্রীমতী [মাতার নাম]</strong>
-                    </div>
-
-                    <div>
-                      নিবাস: <strong>[ঠিকানা]</strong>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <!-- SHUBHO BIBAH -->
-
-              <div class="section-divider">
-                <span>শুভ বিবাহ</span>
-              </div>
-
-
-              <!-- DATE + TIME -->
-
-              <div class="date-section">
-
-                <div class="date">
-                  ২৫শে নভেম্বর ২০২৬ | বুধবার
-                </div>
-
-                <div class="time">
-                  সন্ধ্যা ৫টা
-                </div>
-
-              </div>
-
-
-              <!-- VENUE -->
-
-              <div class="venue-divider">
-                <span></span>
-              </div>
-
-              <div class="venue-label">
-                বিবাহ বাসর
-              </div>
-
-              <div class="venue">
-                কালিন্দী প্লট ওনার্স অ্যাসোসিয়েশন
-              </div>
-
-              <div class="venue-address">
-                পি-৮১/১, কালিন্দী হাউজিং এস্টেট,
-                কলকাতা - ৭০০০৮৯
-                <br>
-                (কালিন্দী স্টেট ব্যাংকের নিকটে)
-              </div>
-
-
-              <!-- ORNAMENT -->
-
-              <div class="message-divider">
-                ⸺ ❈ ⸺
-              </div>
-
-
-              <!-- INVITATION MESSAGE -->
-
-              <div class="message">
-
-                <span class="greeting">
-                  সুহৃৎ,
-                </span>
-
-                প্রজাপতির আশীর্বাদে পাত্র ও পাত্রী
-                আগামী ২৫শে নভেম্বর ২০২৬
-                শুভ বিবাহ বন্ধনে আবদ্ধ হতে চলেছে।
-                <br>
-
-                সেই উপলক্ষে এই বিবাহ অনুষ্ঠানে
-                আপনাদের উপস্থিতি বিশেষভাবে প্রার্থনা করি।
-
-              </div>
-
-
-              <!-- CLOSING -->
-
-              <div class="closing-divider">
-                · · ◆ · ·
-              </div>
-
-              <div class="closing">
-
-                বিনীত/বিনীতা
-
-                <strong>
-                  শ্রী [পিতার নাম]
-                </strong>
-
-                <strong>
-                  শ্রীমতী [মাতার নাম]
-                </strong>
-
-              </div>
-
-
-              <!-- BOTTOM LOTUS -->
-
-              <div class="bottom-lotus">
-                <span class="lotus-symbol">♧</span>
-              </div>
-
-
+            <div class="top-line">
+              ॥ শ্রী গণেশায় নমঃ ॥
             </div>
 
+            <h1 class="title">
+              শুভ বিবাহ
+            </h1>
 
-            <!-- =================================================
-                 ENGLISH VERSION
-                 ================================================= -->
+            <!-- ONLY HEART IN THE BACK -->
+            <div class="ornament">
+              ── ♡ ──
+            </div>
 
-            <div
-              class="translation"
-              id="englishVersion"
-            >
+            <div class="names-bn">
+              ঈশিকা ও সুকল্যাণ
+            </div>
 
-              <div class="english-inner">
+            <p class="intro">
+              দুই পরিবারের ভালোবাসা ও আশীর্বাদে
+              আমাদের শুভ বিবাহের এই আনন্দের দিনে
+              তোমাদের সঙ্গে নিয়ে উদযাপন করতে চাই।
+            </p>
 
+            <p class="closing">
+              <span class="highlight">
+                তোমাদের সবার জন্য অপেক্ষা থাকবে।
+              </span>
+            </p>
 
-                <div class="top-line">
-                  With love and blessings
-                </div>
+            <div class="details">
 
+              <div class="date">
+                ২৫শে নভেম্বর, ২০২৬
+              </div>
 
-                <div class="english-title">
-                  Our Wedding
-                </div>
-
-
-                <div class="lotus">
-                  <span class="lotus-symbol">♧</span>
-                </div>
-
-
-                <div class="english-names">
-                  Ishika & Sukalyan
-                </div>
-
-
-                <div class="english-message">
-
-                  With the love and blessings of our families,
-                  we invite you to celebrate the beginning
-                  of our new journey together.
-
-                </div>
-
-
-                <div class="section-divider">
-                  <span>Wedding Ceremony</span>
-                </div>
-
-
-                <div class="english-details">
-                  25 November 2026
-                  <br>
-                  Wednesday · 5:00 PM
-                </div>
-
-
-                <div class="venue-divider">
-                  <span></span>
-                </div>
-
-
-                <div class="venue-label">
-                  Venue
-                </div>
-
-
-                <div class="english-venue">
-                  Kalindi Plot Owners Association
-                </div>
-
-
-                <div class="english-message">
-
-                  P-81/1, Kalindi Housing Estate,
-                  Kolkata – 700089
-
-                  <br><br>
-
-                  We would be delighted to have
-                  you with us on our special day.
-
-                </div>
-
-
-                <div class="bottom-lotus">
-                  <span class="lotus-symbol">♧</span>
-                </div>
-
-
+              <div class="time">
+                বুধবার · বিকেল ৫টা
               </div>
 
             </div>
 
-
-            <!-- =================================================
-                 TRANSLATION BUTTON
-                 ================================================= -->
-
-            <button
-              type="button"
-              class="translate-button"
-              id="translateButton"
-              onclick="toggleTranslation(event)"
-            >
-              English translation
-            </button>
+          </div>
 
 
-            <!-- =================================================
-                 ACTIONS
-                 ================================================= -->
+          <!-- ======================================
+               ENGLISH
+               ====================================== -->
 
-            <div class="actions">
+          <div
+            class="translation"
+            id="englishVersion"
+          >
 
-              <a
-                class="action"
-                href="https://www.google.com/maps/search/?api=1&query=Kalindi+Plot+Owners+Association%2C+81%2F1+Kalindi+Housing+Estate%2C+Kolkata+700089"
-                target="_blank"
-                rel="noopener"
-                onclick="event.stopPropagation()"
-              >
-                📍 View location
-              </a>
+            <div class="top-line">
+              With love
+            </div>
 
-              <a
-                class="action"
-                href="#"
-                onclick="
-                  event.stopPropagation();
-                  addToCalendar();
-                  return false;
-                "
-              >
-                📅 Add to calendar
-              </a>
+            <h1 class="title">
+              Our Wedding
+            </h1>
+
+            <!-- ONLY HEART IN THE BACK -->
+            <div class="ornament">
+              ── ♡ ──
+            </div>
+
+            <div class="names-en">
+              Ishika & Sukalyan
+            </div>
+
+            <p class="intro">
+              With the love and blessings of our families,
+              we'd love to celebrate our wedding
+              with all our favourite people.
+            </p>
+
+            <p class="closing">
+              <span class="highlight">
+                We'd love to have you there.
+              </span>
+            </p>
+
+            <div class="details">
+
+              <div class="date">
+                25 November, 2026
+              </div>
+
+              <div class="time">
+                Wednesday · 5:00 PM
+              </div>
 
             </div>
 
+          </div>
+
+
+          <!-- ======================================
+               TRANSLATION TOGGLE
+               ====================================== -->
+
+          <button
+            type="button"
+            class="translate-button"
+            id="translateButton"
+            onclick="toggleTranslation(event)"
+          >
+            English translation
+          </button>
+
+
+          <!-- ======================================
+               ACTIONS
+               ====================================== -->
+
+          <div class="actions">
+
+            <a
+              class="action"
+              href="https://www.google.com/maps/search/?api=1&query=Kalindi+Plot+Owners+Association%2C+81%2F1+Kalindi+Housing+Estate%2C+Kolkata+700089"
+              target="_blank"
+              rel="noopener"
+              onclick="event.stopPropagation()"
+            >
+              📍 View location
+            </a>
+
+            <a
+              class="action"
+              href="#"
+              onclick="
+                event.stopPropagation();
+                addToCalendar();
+                return false;
+              "
+            >
+              📅 Add to calendar
+            </a>
 
           </div>
 
@@ -1382,8 +666,6 @@
 
     </div>
 
-
-    <!-- FLIP HINT -->
 
     <div
       class="hint"
@@ -1397,10 +679,9 @@
 
   <script>
 
-
-    /* ==================================================
+    /* ============================================
        CARD FLIP
-       ================================================== */
+       ============================================ */
 
     const scene =
       document.getElementById("scene");
@@ -1432,9 +713,9 @@
     });
 
 
-    /* ==================================================
+    /* ============================================
        TRANSLATION
-       ================================================== */
+       ============================================ */
 
     function toggleTranslation(event) {
 
@@ -1456,7 +737,6 @@
       if (isEnglish) {
 
         english.classList.remove("show");
-
         bengali.classList.remove("hide");
 
         button.textContent =
@@ -1465,7 +745,6 @@
       } else {
 
         bengali.classList.add("hide");
-
         english.classList.add("show");
 
         button.textContent =
@@ -1476,9 +755,9 @@
     }
 
 
-    /* ==================================================
+    /* ============================================
        GOOGLE CALENDAR
-       ================================================== */
+       ============================================ */
 
     function addToCalendar() {
 
@@ -1487,16 +766,13 @@
           "Ishika & Sukalyan — Wedding"
         );
 
-
       const dates =
         "20261125T170000/20261125T200000";
-
 
       const location =
         encodeURIComponent(
           "Kalindi Plot Owners Association, 81/1 Kalindi Housing Estate, Kolkata 700089"
         );
-
 
       const calendarURL =
         "https://calendar.google.com/calendar/render" +
@@ -1504,7 +780,6 @@
         "&text=" + title +
         "&dates=" + dates +
         "&location=" + location;
-
 
       window.open(
         calendarURL,
