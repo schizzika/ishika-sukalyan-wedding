@@ -51,8 +51,6 @@
     .scene {
       width: 100%;
       perspective: 1600px;
-
-      /* Makes typography respond to the actual card width */
       container-type: inline-size;
     }
 
@@ -147,10 +145,6 @@
         Georgia,
         serif;
 
-      /*
-        Scales with the invitation card itself,
-        rather than the entire phone/desktop viewport.
-      */
       font-size: clamp(11px, 3cqw, 15px);
       margin-bottom: 5px;
     }
@@ -217,17 +211,15 @@
     .intro {
       max-width: 350px;
 
-      margin: clamp(9px, 2.8cqw, 13px) auto 0;
+      margin:
+        clamp(9px, 2.8cqw, 13px)
+        auto 0;
 
       font-family:
         "Noto Serif Bengali",
         Georgia,
         serif;
 
-      /*
-        Smaller minimum keeps Bengali comfortable
-        on narrow phone screens.
-      */
       font-size: clamp(11px, 3cqw, 14.5px);
       line-height: 1.7;
     }
@@ -235,7 +227,9 @@
     .closing {
       max-width: 340px;
 
-      margin: clamp(7px, 2.2cqw, 10px) auto 0;
+      margin:
+        clamp(7px, 2.2cqw, 10px)
+        auto 0;
 
       font-family:
         "Noto Serif Bengali",
@@ -408,12 +402,6 @@
        SHORT SCREENS
        ========================= */
 
-    /*
-      These rules only adjust spacing when the
-      physical screen is short. Typography itself
-      remains fluid through container units.
-    */
-
     @media (max-height: 700px) {
       body {
         padding: 10px 14px;
@@ -428,7 +416,8 @@
           clamp(16px, 5cqw, 22px)
           clamp(16px, 6cqw, 24px);
 
-        justify-content: flex-start;
+        /* Keep the card vertically centered on phones */
+        justify-content: center;
       }
 
       .intro {
