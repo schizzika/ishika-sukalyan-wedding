@@ -51,6 +51,9 @@
     .scene {
       width: 100%;
       perspective: 1600px;
+
+      /* Makes typography respond to the actual card width */
+      container-type: inline-size;
     }
 
     .card {
@@ -112,8 +115,8 @@
       color: var(--brown);
 
       padding:
-        clamp(26px, 7%, 38px)
-        clamp(22px, 9%, 42px);
+        clamp(22px, 7cqw, 38px)
+        clamp(18px, 9cqw, 42px);
 
       text-align: center;
 
@@ -144,7 +147,11 @@
         Georgia,
         serif;
 
-      font-size: clamp(12px, 3.1vw, 15px);
+      /*
+        Scales with the invitation card itself,
+        rather than the entire phone/desktop viewport.
+      */
+      font-size: clamp(11px, 3cqw, 15px);
       margin-bottom: 5px;
     }
 
@@ -158,7 +165,7 @@
         Georgia,
         serif;
 
-      font-size: clamp(25px, 7vw, 34px);
+      font-size: clamp(21px, 6.5cqw, 34px);
       font-weight: 600;
 
       line-height: 1.25;
@@ -172,7 +179,7 @@
         Georgia,
         serif;
 
-      font-size: 16px;
+      font-size: clamp(13px, 3.4cqw, 16px);
 
       margin: 4px 0 10px;
 
@@ -187,7 +194,7 @@
         Georgia,
         serif;
 
-      font-size: clamp(24px, 6.6vw, 34px);
+      font-size: clamp(21px, 6.5cqw, 34px);
       font-weight: 600;
 
       line-height: 1.2;
@@ -201,7 +208,7 @@
         Georgia,
         serif;
 
-      font-size: clamp(27px, 7.2vw, 38px);
+      font-size: clamp(27px, 7.2cqw, 38px);
       font-weight: 400;
 
       line-height: 1.12;
@@ -210,29 +217,33 @@
     .intro {
       max-width: 350px;
 
-      margin: 13px auto 0;
+      margin: clamp(9px, 2.8cqw, 13px) auto 0;
 
       font-family:
         "Noto Serif Bengali",
         Georgia,
         serif;
 
-      font-size: clamp(12.5px, 3.2vw, 14.5px);
-      line-height: 1.8;
+      /*
+        Smaller minimum keeps Bengali comfortable
+        on narrow phone screens.
+      */
+      font-size: clamp(11px, 3cqw, 14.5px);
+      line-height: 1.7;
     }
 
     .closing {
       max-width: 340px;
 
-      margin: 10px auto 0;
+      margin: clamp(7px, 2.2cqw, 10px) auto 0;
 
       font-family:
         "Noto Serif Bengali",
         Georgia,
         serif;
 
-      font-size: clamp(12.5px, 3.15vw, 14px);
-      line-height: 1.75;
+      font-size: clamp(11px, 2.9cqw, 14px);
+      line-height: 1.7;
     }
 
     .highlight {
@@ -251,10 +262,12 @@
       width: min(100%, 320px);
 
       margin:
-        15px auto 10px;
+        clamp(10px, 3.2cqw, 15px) auto
+        clamp(7px, 2.2cqw, 10px);
 
       padding:
-        10px 8px;
+        clamp(7px, 2.2cqw, 10px)
+        8px;
 
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -268,7 +281,7 @@
         Georgia,
         serif;
 
-      font-size: clamp(17px, 4.2vw, 21px);
+      font-size: clamp(16px, 4.2cqw, 21px);
       font-weight: 400;
 
       line-height: 1.35;
@@ -282,7 +295,7 @@
         Arial,
         sans-serif;
 
-      font-size: clamp(11px, 2.8vw, 13px);
+      font-size: clamp(10px, 2.7cqw, 13px);
 
       margin-top: 3px;
 
@@ -310,7 +323,10 @@
 
       align-self: center;
 
-      margin: 5px 0 7px;
+      margin:
+        clamp(3px, 1.5cqw, 5px) 0
+        clamp(5px, 2cqw, 7px);
+
       padding: 2px 0;
 
       border: 0;
@@ -343,7 +359,7 @@
       align-items: center;
       flex-wrap: wrap;
 
-      margin-top: 5px;
+      margin-top: clamp(3px, 1.5cqw, 5px);
     }
 
     .action {
@@ -389,51 +405,14 @@
     }
 
     /* =========================
-       SMALL PHONES
-       ========================= */
-
-    @media (max-width: 390px) {
-      body {
-        padding: 10px;
-      }
-
-      .page {
-        width: 94vw;
-      }
-
-      .back {
-        padding: 22px 20px;
-        justify-content: flex-start;
-      }
-
-      .intro {
-        margin-top: 9px;
-        line-height: 1.68;
-      }
-
-      .closing {
-        margin-top: 7px;
-        line-height: 1.65;
-      }
-
-      .details {
-        margin-top: 11px;
-        margin-bottom: 8px;
-        padding: 8px 5px;
-      }
-
-      .actions {
-        margin-top: 4px;
-      }
-
-      .hint {
-        margin-top: 10px;
-      }
-    }
-
-    /* =========================
        SHORT SCREENS
        ========================= */
+
+    /*
+      These rules only adjust spacing when the
+      physical screen is short. Typography itself
+      remains fluid through container units.
+    */
 
     @media (max-height: 700px) {
       body {
@@ -445,18 +424,19 @@
       }
 
       .back {
-        padding: 18px;
+        padding:
+          clamp(16px, 5cqw, 22px)
+          clamp(16px, 6cqw, 24px);
+
         justify-content: flex-start;
       }
 
       .intro {
-        margin-top: 7px;
-        line-height: 1.55;
+        line-height: 1.6;
       }
 
       .closing {
-        margin-top: 5px;
-        line-height: 1.55;
+        line-height: 1.6;
       }
 
       .details {
